@@ -1,0 +1,66 @@
+{
+    "questions": [
+        {
+            "question": "STARZ offers new exclusive original series every Saturday night.",
+            "answers": [
+                {
+                    "answer": "True",
+                    "correct": 1
+                },
+                {
+                    "answer": "False",
+                    "correct": 0
+                }
+            ],
+            "correct": "Correct!",
+            "incorrect": "Wrong."
+        },
+        {
+            "question": "Which original series can your customers watch exclusively on STARZ?",
+            "answers": [
+                {
+                    "answer": "Outlander",
+                    "correct": 1
+                },
+                {
+                    "answer": "The Chair",
+                    "correct": 1
+                },{
+                    "answer": "True",
+                    "correct": 1
+                },
+                {
+                    "answer": "Survivor's Remorse",
+                    "correct": 0
+                },{
+                    "answer": "The Missing",
+                    "correct": 1
+                },
+                {
+                    "answer": "Hogan's Heros",
+                    "correct": 0
+                }
+            ],
+            "correct": "Correct!",
+            "incorrect": "Wrong."
+        },
+        {
+            "question": "How many titles are available on STARZ?",
+            "answers": [
+                {
+                    "answer": "Over 450",
+                    "correct": 1
+                },
+                {
+                    "answer": "300",
+                    "correct": 0
+                },{
+                    "answer": "250",
+                    "correct": 0
+                }
+            ],
+            "correct": "Correct!",
+            "incorrect": "Wrong."
+        }
+    ]
+}

@@ -1,0 +1,213 @@
+// layout values
+tvWidth = 200px
+tvHeight = tvWidth * 0.725
+tvBGWidth = tvWidth
+tvBGHeight = tvBGWidth * 0.575
+tvMargin = 15px
+
+buttonWidth = 140px
+buttonHeight = 80px
+
+// mix-ins
+transform(t)
+  -webkit-transform t
+  -moz-transform t
+  -ms-transform t
+  -o-transform t
+  transform t
+
+body
+  width 100%
+  font-family Helvetica Neue, Helvetica, Verdana, sans-serif
+  background-color #000
+  background-image url(../img/bg_1.jpg)
+  background-position top center
+  background-size cover
+  background-repeat no-repeat
+  color #FFF
+
+div
+  position relative
+  height auto
+
+/* GENERAL UI */
+
+.hotspot
+  cursor pointer
+
+.alertScreen
+  display none
+
+.buttonBG
+  background-size contain
+
+.button
+  display inline-block
+  cursor pointer
+  width buttonWidth
+  height buttonHeight
+  text-align center
+  line-height 40px
+  color #FFF
+  text-transform uppercase
+  font-size 12px
+
+.button1
+  background url(../img/button_1.svg) top left no-repeat
+
+.button2
+  background url(../img/button_2.svg) top left no-repeat
+
+.button3
+  background url(../img/button_3.svg) top left no-repeat
+
+.button4
+  background url(../img/button_4.svg) top left no-repeat
+
+.border1
+  border 1px solid gray
+
+
+/* GENERAL LAYOUT */
+
+.screen
+  width 90%
+  margin 0 auto
+
+.overlay
+  position fixed
+  z-index 10000
+  margin-top 100px
+  margin-left 50%
+  left -20%
+  height auto
+  width 40%
+  overflow hidden
+
+.lightPad
+  padding 5px
+
+.heavyPad
+  padding 25px
+
+.lightMargin
+  padding 5px
+
+/* SCREENS */
+
+.screen
+  display none
+
+.title
+  width 70%
+  margin 40px auto
+
+.subtitleText
+  height 50px
+  margin 10px auto 10px auto
+
+/* GENERAL TYPOGRAPHY */
+
+p
+  -webkit-touch-callout none
+  -webkit-user-select none
+  -khtml-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+
+.copy1
+  width 70%
+  margin 5px auto 5px auto
+  line-height 1.6em
+  text-align justify
+  font-size 14px
+
+.header2
+  width 70%
+  margin 5px auto 5px auto
+  line-height 1.6em
+  text-align justify
+  font-size 16px
+
+.smallFont
+  font-size 12px
+
+.centerText
+  text-align center
+
+.gray
+  color gray
+
+/* QUIZ */
+
+p.questionText
+  font-size 22px
+  font-family HelveticaNeue-Light, sans-serif
+
+.questionAnswers span
+  display block
+  width 300px
+  line-height 25px
+  text-align center
+  margin 0 auto 3px auto
+
+.correct
+  background-color darkgreen
+
+.incorrect
+  background-color darkred
+
+/* GENERAL COLORS */
+
+.grayBG
+  background-color dimgrey
+
+.ltBlue
+  color lightskyblue
+
+/* GAME */
+
+#tvWrapper
+  margin 0 auto
+  width tvWidth*4 + tvMargin*8
+
+.tv
+  width tvWidth
+  height tvHeight
+  float left
+  margin tvMargin tvMargin tvMargin tvMargin
+
+.tv .tvScreen
+  background-size tvBGWidth tvBGHeight
+  background-repeat no-repeat
+
+.tv .tvScreen .timer
+  position relative
+  top -55px
+  height 5px
+  background-color #008000
+  margin 0 auto 0 auto
+
+.tv .tvScreen .alert
+  position absolute
+  width tvWidth*.75
+  top 20px
+  margin-left 50%
+  left -((tvWidth*.75)/2)
+
+.tv .tvScreen .alert .animate
+  width 75px
+  margin 0 auto
+
+.tv .broken1
+  transform(rotate(3deg))
+
+.tv .broken2
+  transform(rotate(-1deg))
+
+.tv .broken3
+  transform(rotate(2deg))
+
+.tv .broken4
+  transform(rotate(-4deg))

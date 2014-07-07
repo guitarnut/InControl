@@ -1,0 +1,67 @@
+doctype
+head
+    meta(name="viewport", content="initial-scale=1, width=device-width")
+    title In Control
+    script(src="//code.jquery.com/jquery-2.1.1.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.0/TweenMax.min.js")
+
+    link(type="text/css", rel="stylesheet", href="css/global.css")
+body
+    div#nav
+        p.centerText.copy1.smallFont Admin Menu: <span data-screen="#instructionsScreen">Instructions</span> <span data-screen="#gameplayScreen">Play</span> <span data-screen="#triviaScreen">Trivia</span> <span data-screen="#summaryScreen">Summary</span> <span data-screen="#titleScreen">Quit</span>
+    div#loading.overlay.grayBG.heavyPad
+        p.centerText Loading data...
+    div#titleScreen.screen
+        div.content
+            div.title
+                img.lightPad(src="img/text_incontrol.svg" alt="In Control")
+            p.copy1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac malesuada leo. Curabitur cursus, turpis vel dapibus vehicula, metus justo ultrices dolor, quis bibendum lacus nisi a purus. Curabitur quam quam, pretium non dapibus quis, faucibus et nisl.
+            p.centerText <span class="button buttonBG button1 lightMargin" data-screen="#instructionsScreen" ontouchstart="javascript:STARZ.SoundManager.init();">Instructions</span> <span class="button buttonBG button1 lightMargin" data-screen="#gameplayScreen">Play</span>
+    div#instructionsScreen.screen
+        div.content
+            p.centerText
+                img.subtitleText.lightPad(src="img/text_instructions.svg" alt="Instructions")
+            p.copy1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac malesuada leo. Curabitur cursus, turpis vel dapibus vehicula, metus justo ultrices dolor, quis bibendum lacus nisi a purus. Curabitur quam quam, pretium non dapibus quis, faucibus et nisl.
+            p.centerText <span class="button buttonBG button1 lightMargin" data-screen="#gameplayScreen">Play</span>
+    div#triviaScreen.screen
+        div.content
+            p.centerText
+                img.subtitleText.lightPad(src="img/text_trivia.svg" alt="Trivia")
+            p.copy1.centerText.gray Answer this question for 100 bonus points.
+            p.copy1.questionText.centerText <span data-question></span>
+            p.centerText.questionAnswers(data-answers)
+            p.copy1.centerText.feedbackText <span data-feedback></span>
+            p.centerText <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#gameplayScreen">Play</span> <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#summaryScreen">Continue</span>
+    div#gameplayScreen.screen
+        div#ready.overlay.grayBG.heavyPad
+            p.centerText Get Ready!
+        div#complete.overlay.grayBG.heavyPad
+            p.centerText Level complete!<br><span class="button buttonBG button1 lightMargin" data-screen="#triviaScreen">Continue</span>
+        div#tvWrapper
+            each i in new Array(12)
+                div.tv
+                    div.tvScreen
+                        img(src="img/tv.svg")
+                        div.timer
+                        div.alert
+                            div.animate
+                                img(src="img/icon_hurry.svg")
+            br(style="clear: both")
+    div#summaryScreen.screen
+        div.content
+            p.centerText
+                img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
+            p.copy1 You broke <span data-stat-broken>0</span> TVs.
+            p.copy1 You saved <span data-stat-completed>0</span> TVs.
+            p.copy1 You changed <span data-stat-channels>0</span> channels.
+            p.copy1 You answered <span data-stat-correct>0</span> questions correctly.
+            p.copy1 You missed <span data-stat-incorrect>0</span> questions.
+            p.copy1 Your total score is <span data-stat-score>0</span>.
+            h4.header2 Achievements
+            p#achievements.copy1
+            p.centerText <span class="button buttonBG button1 lightMargin" data-screen="#titleScreen">Play Again?</span>
+    div#rotateDevice.alertScreen
+        h4 Rotate Device
+        p For the best experience, rotate your iPad.
+
+    script(src="script/InControl.min.js")

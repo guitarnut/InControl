@@ -1,0 +1,16 @@
+{
+  "name": "InControl",
+  "version": "0.0.0",
+  "authors": [
+    "Rick Henley <creative@theguitarnut.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/development/vendor",
+    "test",
+    "tests"
+  ]
+}
