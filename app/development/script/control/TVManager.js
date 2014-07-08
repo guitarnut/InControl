@@ -1,6 +1,6 @@
 STARZ.TVManager = (function () {
 
-    var BONUS_FREQUENCY = 3;
+    var BONUS_FREQUENCY = 1;
 
     var imageData,
         tvSets = [],

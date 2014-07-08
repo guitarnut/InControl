@@ -57,7 +57,7 @@ STARZ.GameStatusManager = (function () {
             'brokenTV': 0,
             'achievements': [],
             'currentRound': 0,
-            'totalRounds': 2
+            'totalRounds': 3
         }
     }
 

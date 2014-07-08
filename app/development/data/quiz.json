@@ -1,4 +1,11 @@
 {
+    "sets": [
+        {
+            "round1": 3,
+            "round2": 2,
+            "round3": 1
+        }
+    ],
     "questions": [
         {
             "question": "STARZ offers new exclusive original series every Saturday night.",

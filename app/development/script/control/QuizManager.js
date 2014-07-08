@@ -30,9 +30,6 @@ STARZ.QuizManager = (function () {
         // hide all the options
         $nextButtonOptions.hide();
 
-        // this button may change, so we'll always look for a new instance
-        $nextButton = $parentContainer.find('.next');
-
         var q = quizData.questions[currentQuestion];
         $questionText.text(q.question);
 
@@ -102,14 +99,22 @@ STARZ.QuizManager = (function () {
         if ($questionAnswers != undefined) $questionAnswers.unbind('click');
 
         $questionFeedback.text(t);
-        $nextButton.show();
 
         STARZ.EventDispatcher.fire('quizEvent', c);
+
+        // this must happen after the event is fired
+        // this button will change, so we'll always look for a new instance
+        $nextButton = $parentContainer.find('.next');
+        $nextButton.show();
     }
 
     return {
         data: storeData,
-        build: createQuestion
+        build: createQuestion,
+        questions: function () {
+            // stores how many questions each round has
+            return quizData.sets;
+        }
     }
 
 })();

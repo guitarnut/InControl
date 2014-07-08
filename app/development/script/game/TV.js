@@ -10,14 +10,16 @@ STARZ.TV = (function () {
             finalImage = data.finalImage,
             brokenImage = data.brokenImage,
             bonusImageObject = data.bonusImage,
-            bonus = 0,
+            bonusValue = 0,
             broken = false,
             finalClick = false,
             paused = false,
             currentImage = '',
             timer = STARZ.Timer.create(el.children('.timer:eq(0)')),
             alert = el.children('.alert:eq(0)'),
-            alertIcon = alert.children('.animate:eq(0)');
+            alertIcon = alert.children('.animate:eq(0)'),
+            bonus = el.children('.bonus:eq(0)'),
+            bonusIcon = bonus.children('.animate:eq(0)');
 
         function tvReady() {
             // get everything ready, but don't add click events or start the timer
@@ -34,6 +36,7 @@ STARZ.TV = (function () {
             finalClick = false;
             paused = false;
             alert.hide();
+            bonus.hide();
         }
 
         function start() {
@@ -49,8 +52,8 @@ STARZ.TV = (function () {
                 var index = Math.floor(Math.random() * (images.length - 1));
                 images.splice(index, 0, bonusImageObject.image);
 
-                // store the bonus value
-                bonus = bonusImageObject.value;
+                // store the bonusValue value
+                bonusValue = bonusImageObject.value;
             }
 
             // store the final image
@@ -89,8 +92,22 @@ STARZ.TV = (function () {
         }
 
         function hideAlert() {
-            alert.fadeTo('slow', 0);
+            alert.fadeTo('slow', 0, function () {
+                $(this).hide();
+            });
             new TweenLite(alertIcon, TWEEN_SPEED, {width: '50%', rotation: '0', ease: Quad.easeOut});
+        }
+
+        function showBonus() {
+            bonus.fadeTo('fast', 1);
+            new TweenLite(bonusIcon, TWEEN_SPEED, {width: '100%', ease: Quad.easeOut, onComplete: hideBonus});
+        }
+
+        function hideBonus() {
+            bonus.fadeTo('slow', 0, function () {
+                $(this).hide();
+            });
+            new TweenLite(bonusIcon, TWEEN_SPEED, {width: '50%', ease: Quad.easeOut});
         }
 
         function handleClick() {
@@ -102,10 +119,11 @@ STARZ.TV = (function () {
                     // store the number of clicks
                     STARZ.EventDispatcher.fire('tvEvent', 'channel');
 
-                    if(bonusImageObject) {
+                    if (bonusImageObject) {
                         // check to see if it's a bonus
                         if (currentImage === bonusImageObject.image) {
-                            STARZ.EventDispatcher.fire('tvEvent', {'type': 'bonus', 'value': bonus});
+                            STARZ.EventDispatcher.fire('tvEvent', {'type': 'bonus', 'value': bonusValue});
+                            showBonus();
                         }
                     }
 
@@ -133,7 +151,7 @@ STARZ.TV = (function () {
             broken = true;
 
             // css transform
-            var broken = Math.floor(Math.random()*4);
+            var broken = Math.floor(Math.random() * 4);
 
             switch (broken) {
                 case 0:

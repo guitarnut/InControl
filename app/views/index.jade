@@ -14,9 +14,10 @@ body
     div#titleScreen.screen
         div.content
             div.title
-                img.lightPad(src="img/text_incontrol.svg" alt="In Control")
-            p.copy1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac malesuada leo. Curabitur cursus, turpis vel dapibus vehicula, metus justo ultrices dolor, quis bibendum lacus nisi a purus. Curabitur quam quam, pretium non dapibus quis, faucibus et nisl.
-            p.centerText <span class="button buttonBG button1 lightMargin" data-screen="#instructionsScreen" ontouchstart="javascript:STARZ.SoundManager.init();">Instructions</span> <span class="button buttonBG button1 lightMargin" data-screen="#gameplayScreen">Play</span>
+                img.lightPad(src="img/text_title.svg" alt="In Control")
+            p.centerText
+                img.button.buttonBG.button1.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
+                img.button.buttonBG.button1.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
     div#instructionsScreen.screen
         div.content
             p.centerText
@@ -31,21 +32,24 @@ body
             p.copy1.questionText.centerText <span data-question></span>
             p.centerText.questionAnswers(data-answers)
             p.copy1.centerText.feedbackText <span data-feedback></span>
-            p.centerText <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#gameplayScreen">Play</span> <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#summaryScreen">Continue</span>
+            p.centerText <span class="button buttonBG button1 buttonOptions lightMargin" data-method="nextQuestion">Next Question</span> <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#gameplayScreen">Continue</span> <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#summaryScreen">Continue</span>
     div#gameplayScreen.screen
-        div#ready.overlay.grayBG.heavyPad
-            p.centerText Get Ready!
-        div#complete.overlay.grayBG.heavyPad
-            p.centerText Level complete!<br><span class="button buttonBG button1 lightMargin" data-screen="#triviaScreen">Continue</span>
+        div#ready.overlay
+            img(src="img/overlay_getready.svg")
+        div#complete.overlay
+            img(data-screen="#triviaScreen", src="img/overlay_levelcomplete.svg")
         div#tvWrapper
             each i in new Array(12)
-                div.tv
+                div.tv.noselect
                     div.tvScreen
                         img(src="img/tv.svg")
                         div.timer
                         div.alert
                             div.animate
-                                img(src="img/icon_hurry.svg")
+                                img(src="img/text_hurry.svg")
+                        div.bonus
+                            div.animate
+                                img(src="img/text_bonus.svg")
             br(style="clear: both")
     div#summaryScreen.screen
         div.content
@@ -63,5 +67,4 @@ body
     div#rotateDevice.alertScreen
         h4 Rotate Device
         p For the best experience, rotate your iPad.
-
     script(src="script/InControl.min.js")

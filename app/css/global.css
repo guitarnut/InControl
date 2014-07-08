@@ -1,8 +1,8 @@
+/* Elements */
 body {
   width: 100%;
   font-family: Helvetica Neue, Helvetica, Verdana, sans-serif;
   background-color: #000;
-  background-image: url("../img/bg_1.jpg");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@ div {
   font-size: 12px;
 }
 .button1 {
-  background: url("../img/button_1.svg") top left no-repeat;
+  width: 180px;
 }
 .button2 {
   background: url("../img/button_2.svg") top left no-repeat;
@@ -48,6 +48,13 @@ div {
 .border1 {
   border: 1px solid #808080;
 }
+.noselect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 /* GENERAL LAYOUT */
 .screen {
   width: 90%;
@@ -58,10 +65,9 @@ div {
   z-index: 10000;
   margin-top: 100px;
   margin-left: 50%;
-  left: -20%;
+  left: -250px;
   height: auto;
-  width: 40%;
-  overflow: hidden;
+  width: 500px;
 }
 .lightPad {
   padding: 5px;
@@ -86,11 +92,10 @@ div {
 }
 /* GENERAL TYPOGRAPHY */
 p {
-  -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -o-user-select: none;
   user-select: none;
 }
 .copy1 {
@@ -163,14 +168,16 @@ p.questionText {
   background-color: #008000;
   margin: 0 auto 0 auto;
 }
-.tv .tvScreen .alert {
+.tv .tvScreen .alert,
+.tv .tvScreen .bonus {
   position: absolute;
   width: 150px;
   top: 20px;
   margin-left: 50%;
   left: -75px;
 }
-.tv .tvScreen .alert .animate {
+.tv .tvScreen .alert .animate,
+.tv .tvScreen .bonus .animate {
   width: 75px;
   margin: 0 auto;
 }
