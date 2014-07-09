@@ -41,7 +41,7 @@ STARZ.QuizManager = (function () {
             // keep track of the total right answers
             if (correct === 1)totalAnswers++;
 
-            var html = '<' + el + '  class="lightMargin hotspot border1" data-answer data-correct="' + correct + '">' + answer + '</' + el + '>';
+            var html = '<' + el + '  class="lightMargin hotspot triviaButton default" data-answer data-correct="' + correct + '">' + answer + '</' + el + '>';
             $(html).appendTo($questionAnswersContainer);
         }
 
@@ -50,6 +50,8 @@ STARZ.QuizManager = (function () {
         $questionAnswers.click(function () {
             var $this = $(this);
             var correct = $this.attr('data-correct');
+
+            $this.removeClass('default');
 
             if (correct === '1') {
                 STARZ.EventDispatcher.fire('achievementEvent', STARZ.Achievement.RightAnswer);

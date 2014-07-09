@@ -5,9 +5,6 @@ tvBGWidth = tvWidth
 tvBGHeight = tvBGWidth * 0.575
 tvMargin = 15px
 
-buttonWidth = 140px
-buttonHeight = 80px
-
 // mix-ins
 transform(t)
   -webkit-transform t
@@ -27,19 +24,27 @@ user-select(t)
 /* Elements */
 
 body
-  width 100%
+  margin 0 auto
   font-family Helvetica Neue, Helvetica, Verdana, sans-serif
   background-color #000
-  background-position top center
-  background-size cover
-  background-repeat no-repeat
   color #FFF
 
 div
   position relative
   height auto
+  z-index 10
 
 /* GENERAL UI */
+
+#dimmer
+  position fixed
+  z-index 1
+  width 100%
+  height 1200px
+  background-color #000
+  top 0
+  left 0
+  display none
 
 .hotspot
   cursor pointer
@@ -47,37 +52,20 @@ div
 .alertScreen
   display none
 
-.buttonBG
-  background-size contain
-
-.button
-  display inline-block
-  cursor pointer
-  width buttonWidth
-  height buttonHeight
-  text-align center
-  line-height 40px
-  color #FFF
-  text-transform uppercase
-  font-size 12px
-
 .button1
   width 180px
 
-.button2
-  background url(../img/button_2.svg) top left no-repeat
-
-.button3
-  background url(../img/button_3.svg) top left no-repeat
-
-.button4
-  background url(../img/button_4.svg) top left no-repeat
-
-.border1
-  border 1px solid gray
-
 .noselect
   user-select(none)
+
+/* BACKGROUNDS */
+
+.original1
+  background-image url(../img/background_original1.jpg)
+  background-repeat no-repeat
+  background-attachment fixed
+  background-size cover
+  background-position center bottom
 
 /* GENERAL LAYOUT */
 
@@ -116,7 +104,7 @@ div
   height 50px
   margin 10px auto 10px auto
 
-/* GENERAL TYPOGRAPHY */
+/* TYPOGRAPHY */
 
 p
   user-select(none)
@@ -126,7 +114,6 @@ p
   margin 5px auto 5px auto
   line-height 1.6em
   text-align justify
-  font-size 14px
 
 .header2
   width 70%
@@ -135,38 +122,40 @@ p
   text-align justify
   font-size 16px
 
+.regularFont
+  font-size 14px
+
 .smallFont
   font-size 12px
 
 .centerText
   text-align center
 
-.gray
-  color gray
-
 /* QUIZ */
 
 p.questionText
   font-size 22px
-  font-family HelveticaNeue-Light, sans-serif
 
-.questionAnswers span
-  display block
-  width 300px
-  line-height 25px
+.questionAnswers .triviaButton
+  display inline-block
+  width 136px
+  height 60px
+  margin 3px
+  line-height 56px
   text-align center
-  margin 0 auto 3px auto
+  font-size 16px
+  font-weight lighter
 
-.correct
-  background-color darkgreen
+.questionAnswers .default
+  background url(../img/button_trivia.svg) top left no-repeat
 
-.incorrect
-  background-color darkred
+.questionAnswers .correct
+  background url(../img/button_trivia_correct.svg) top left no-repeat
+
+.questionAnswers .incorrect
+  background url(../img/button_trivia_incorrect.svg) top left no-repeat
 
 /* GENERAL COLORS */
-
-.grayBG
-  background-color dimgrey
 
 .ltBlue
   color lightskyblue
@@ -197,7 +186,7 @@ p.questionText
 .tv .tvScreen .alert, .tv .tvScreen .bonus
   position absolute
   width tvWidth*.75
-  top 20px
+  top 40px
   margin-left 50%
   left -((tvWidth*.75)/2)
 

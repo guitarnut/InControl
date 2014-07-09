@@ -6,37 +6,43 @@ head
     script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.0/TweenMax.min.js")
 
     link(type="text/css", rel="stylesheet", href="css/global.css")
-body
+body.original1
     div#nav
-        p.centerText.copy1.smallFont Admin Menu: <span data-screen="#instructionsScreen">Instructions</span> <span data-screen="#gameplayScreen">Play</span> <span data-screen="#triviaScreen">Trivia</span> <span data-screen="#summaryScreen">Summary</span> <span data-screen="#titleScreen">Quit</span>
-    div#loading.overlay.grayBG.heavyPad
-        p.centerText Loading data...
+        p.centerText.copy1.regularFont <span data-screen="#instructionsScreen">Instructions</span> <span data-screen="#gameplayScreen">Play</span> <span data-screen="#triviaScreen">Trivia</span> <span data-screen="#summaryScreen">Summary</span> <span data-screen="#titleScreen">Quit</span>
+    div#loading.overlay.heavyPad
+        p.centerText
+            img(src="img/loadIcon.gif")
     div#titleScreen.screen
         div.content
             div.title
                 img.lightPad(src="img/text_title.svg" alt="In Control")
             p.centerText
-                img.button.buttonBG.button1.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
-                img.button.buttonBG.button1.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
+                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
+                img.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
     div#instructionsScreen.screen
         div.content
             p.centerText
-                img.subtitleText.lightPad(src="img/text_instructions.svg" alt="Instructions")
-            p.copy1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac malesuada leo. Curabitur cursus, turpis vel dapibus vehicula, metus justo ultrices dolor, quis bibendum lacus nisi a purus. Curabitur quam quam, pretium non dapibus quis, faucibus et nisl.
-            p.centerText <span class="button buttonBG button1 lightMargin" data-screen="#gameplayScreen">Play</span>
+                img.subtitleText.lightPad(src="img/text_instructions.svg", alt="Instructions")
+            p.centerText
+                img(src="img/instructions.svg", alt="Instructions", width="800")
+            p.centerText
+                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
     div#triviaScreen.screen
         div.content
             p.centerText
-                img.subtitleText.lightPad(src="img/text_trivia.svg" alt="Trivia")
-            p.copy1.centerText.gray Answer this question for 100 bonus points.
+                img.subtitleText.lightPad(src="img/text_triviachallenge.svg" alt="Trivia")
+            p.copy1.regularFont.centerText.ltBlue Answer this question for 100 bonus points.
             p.copy1.questionText.centerText <span data-question></span>
             p.centerText.questionAnswers(data-answers)
             p.copy1.centerText.feedbackText <span data-feedback></span>
-            p.centerText <span class="button buttonBG button1 buttonOptions lightMargin" data-method="nextQuestion">Next Question</span> <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#gameplayScreen">Continue</span> <span class="button buttonBG button1 buttonOptions lightMargin" data-screen="#summaryScreen">Continue</span>
+            p.centerText
+                img.buttonOptions.button1.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
+                img.buttonOptions.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
+                img.buttonOptions.button1.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
     div#gameplayScreen.screen
         div#ready.overlay
             img(src="img/overlay_getready.svg")
-        div#complete.overlay
+        div#complete.overlay.hotspot
             img(data-screen="#triviaScreen", src="img/overlay_levelcomplete.svg")
         div#tvWrapper
             each i in new Array(12)
@@ -63,8 +69,10 @@ body
             p.copy1 Your total score is <span data-stat-score>0</span>.
             h4.header2 Achievements
             p#achievements.copy1
-            p.centerText <span class="button buttonBG button1 lightMargin" data-screen="#titleScreen">Play Again?</span>
+            p.centerText
+                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
     div#rotateDevice.alertScreen
         h4 Rotate Device
         p For the best experience, rotate your iPad.
+    div#dimmer
     script(src="script/InControl.min.js")
