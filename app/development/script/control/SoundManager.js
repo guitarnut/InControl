@@ -1,22 +1,43 @@
 STARZ.SoundManager = (function () {
 
-    var snd = 'audio/demo.wav';
+    var audio,
+        fx,
+        music,
+        path,
+        fileType = '.wav';
+    //'audio/demo.wav'
 
-    function init() {
+    function init(a, p) {
+        path = p;
+
+        audio = document.getElementById(a);
+        audio.style.display = "none";
+        audio.innerHTML = '<audio id="fx"></audio><audio id="music" loop></audio>';
+
+        fx = document.getElementById('fx');
+        music = document.getElementById('music');
     }
 
-    function play(s) {
-        switch(s) {
-            case 'win':
-                snd = '';
-                break;
-        }
-        console.log('Playing sound ' + s)
+    function playFX(s) {
+        fx.src = path + s + fileType;
+        fx.play();
+    }
+
+    function playMusic(s) {
+        music.src = path + s + fileType;
+        music.play();
+    }
+
+    function stop() {
+        music.pause();
+        fx.pause();
     }
 
     return {
         init: init,
-        play: play
+        playFX: playFX,
+        playMusic: playMusic,
+        stop: stop
     }
 
 })();

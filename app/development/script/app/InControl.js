@@ -6,7 +6,11 @@ STARZ.InControl = (function() {
     function init() {
         // reset all user stats;
         STARZ.GameStatusManager.reset();
-        STARZ.SoundManager.init();
+
+        // music setup
+        STARZ.SoundManager.init('audio', 'audio/');
+
+        // button setup
         UI.ButtonFX.init('.button1');
 
         // setup data and listeners

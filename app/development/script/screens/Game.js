@@ -17,6 +17,7 @@ STARZ.Game = (function () {
         setTimeout(startLevel, START_DELAY);
 
         STARZ.TVManager.build('.tvScreen');
+        STARZ.SoundManager.stop();
     }
 
     function startLevel() {
@@ -24,6 +25,7 @@ STARZ.Game = (function () {
             $(this).hide();
         });
 
+        STARZ.SoundManager.playMusic('music2');
         STARZ.TVManager.start();
     }
 
@@ -32,6 +34,7 @@ STARZ.Game = (function () {
 
         // hide bg overlay
         UI.Dimmer.hide(1000);
+        STARZ.SoundManager.stop();
     }
 
     function handleGameEvent(e) {
