@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                 separator: ' '
             },
             dist: {
-                src: ['app/development/script/app/startup.js','app/development/script/control/**/*.js','app/development/script/game/**/*.js','app/development/script/screens/**/*.js','app/development/script/util/**/*.js','app/development/script/app/InControl.js'],
+                src: ['app/development/script/app/startup.js','app/development/script/control/**/*.js','app/development/script/game/**/*.js','app/development/script/screens/**/*.js','app/development/script/ui/**/*.js','app/development/script/util/**/*.js','app/development/script/app/InControl.js'],
                 dest: 'app/development/script/InControl.min.js'
             }
         },

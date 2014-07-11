@@ -45,6 +45,9 @@ STARZ.Quiz = (function () {
 
         questionsComplete = 0;
 
+        UI.Dimmer.contract(80);
+        UI.Dimmer.show(0.4);
+
         buildQuiz();
     }
 

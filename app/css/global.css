@@ -11,23 +11,14 @@ div {
   z-index: 10;
 }
 /* GENERAL UI */
-#dimmer {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  height: 1200px;
-  background-color: #000;
-  top: 0;
-  left: 0;
-  display: none;
-}
 .hotspot {
   cursor: pointer;
 }
 .alertScreen {
   display: none;
 }
-.button1 {
+.button1,
+.button2 {
   width: 180px;
 }
 .noselect {
@@ -138,6 +129,19 @@ p.questionText {
   color: #87cefa;
 }
 /* GAME */
+#instructions {
+  width: 500px;
+  height: 200px;
+  margin: auto;
+}
+#instructions .prev,
+#instructions .next {
+  width: 30px;
+  height: 30px;
+}
+#instructions .item {
+  height: 200px;
+}
 #tvWrapper {
   margin: 0 auto;
   width: 920px;

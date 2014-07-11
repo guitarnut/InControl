@@ -18,6 +18,9 @@ STARZ.QuizManager = (function () {
 
     // accepts the page element that you'd like to use for the questions
     function createQuestion(el) {
+        // remove button FX to keep buttons hidden
+        UI.ButtonFX.cleanup('.buttonOptions');
+
         // cleanup existing content
         cleanup();
 
@@ -45,10 +48,15 @@ STARZ.QuizManager = (function () {
             $(html).appendTo($questionAnswersContainer);
         }
 
+        // add button FX to new instances
+        UI.ButtonFX.init('.triviaButton');
+        UI.ButtonFX.oneClick('.triviaButton');
+
         $questionAnswers = $('[data-answer]');
 
         $questionAnswers.click(function () {
             var $this = $(this);
+            $this.unbind('click');
             var correct = $this.attr('data-correct');
 
             $this.removeClass('default');
@@ -104,6 +112,12 @@ STARZ.QuizManager = (function () {
 
         STARZ.EventDispatcher.fire('quizEvent', c);
 
+        // cleanup bindings
+        UI.ButtonFX.cleanup('.triviaButton');
+
+        // add button FX to next button
+        UI.ButtonFX.init('.buttonOptions');
+
         // this must happen after the event is fired
         // this button will change, so we'll always look for a new instance
         $nextButton = $parentContainer.find('.next');
@@ -120,4 +134,3 @@ STARZ.QuizManager = (function () {
     }
 
 })();
-

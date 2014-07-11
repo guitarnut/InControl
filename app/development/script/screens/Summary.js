@@ -2,9 +2,9 @@ STARZ.Summary = (function() {
 
     var $broken,
         $completed,
-        $channels,
         $score,
         $correct,
+        $bonusCount,
         $incorrect,
         $achievements;
 
@@ -16,8 +16,8 @@ STARZ.Summary = (function() {
 
         $broken = $broken || $('[data-stat-broken]');
         $completed = $completed || $('[data-stat-completed]');
-        $channels = $channels || $('[data-stat-channels]');
         $score = $score || $('[data-stat-score]');
+        $bonusCount = $bonusCount || $('[data-stat-bonuscount]');
         $correct = $correct || $('[data-stat-correct]');
         $incorrect = $incorrect || $('[data-stat-incorrect]');
         $achievements = $achievements || $('#achievements');
@@ -25,13 +25,16 @@ STARZ.Summary = (function() {
         data = STARZ.GameStatusManager.data();
 
         setText();
+
+        UI.Dimmer.contract(80);
+        UI.Dimmer.show(0.4);
     }
 
     function setText() {
         $broken.text(data.brokenTV);
         $completed.text(data.completedTV);
-        $channels.text(data.channels);
         $score.text(data.score);
+        $bonusCount.text(data.bonusCount);
         $correct.text(data.correct);
         $incorrect.text(data.incorrect);
 

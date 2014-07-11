@@ -12,6 +12,7 @@ STARZ.GameStatusManager = (function () {
                 break;
             case 'bonus':
                 gameData.score += v;
+                gameData.bonusCount += 1;
                 break;
             case 'correct':
                 gameData.correct++;
@@ -20,11 +21,6 @@ STARZ.GameStatusManager = (function () {
             case 'incorrect':
                 gameData.incorrect++;
                 gameData.score += STARZ.Scores.Incorrect;
-                break;
-            case 'channels':
-                gameData.channels++;
-                gameData.score += STARZ.Scores.Channel;
-                if (gameData.channels > 100)STARZ.EventDispatcher.fire('achievementEvent', STARZ.Achievement.Clicks);
                 break;
             case 'completedTV':
                 gameData.completedTV++;
@@ -53,7 +49,7 @@ STARZ.GameStatusManager = (function () {
             'correct': 0,
             'incorrect': 0,
             'completedTV': 0,
-            'channels': 0,
+            'bonusCount': 0,
             'brokenTV': 0,
             'achievements': [],
             'currentRound': 0,
@@ -80,7 +76,6 @@ STARZ.GameStatusManager = (function () {
             case 'tvEvent':
                 if (detail === 'complete')STARZ.GameStatusManager.store('completedTV');
                 if (detail === 'broken')STARZ.GameStatusManager.store('brokenTV');
-                if (detail === 'channel')STARZ.GameStatusManager.store('channels');
                 if (detail.type === 'bonus')STARZ.GameStatusManager.store('bonus', detail.value);
                 break;
             case 'quizEvent':

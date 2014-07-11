@@ -2,9 +2,9 @@ STARZ.TV = (function () {
 
     // tv set class object
     var TVSet = function (data) {
-        var TWEEN_SPEED = .5,
+        var TWEEN_SPEED = 1,
             CHANNEL_INTERVAL,
-            CHANNEL_SPEED = Math.round(Math.random()*4000)+2000;
+            CHANNEL_SPEED = 1000;
 
         var el = data.el,
             images = data.images,
@@ -13,6 +13,8 @@ STARZ.TV = (function () {
             brokenImage = data.brokenImage,
             bonusImageObject = data.bonusImage,
             bonusValue = 0,
+            broken = false,
+            finalClick = false,
             paused = false,
             currentImage = '',
             timer = STARZ.Timer.create(el.children('.timer:eq(0)')),
@@ -24,11 +26,6 @@ STARZ.TV = (function () {
         function tvReady() {
             // get everything ready, but don't add click events or start the timer
             resetTimer();
-
-            // store the final image
-            images.push(starzImage);
-
-            // set the initial image
             changeScreenImage();
 
             // reset any css transformations
@@ -37,6 +34,7 @@ STARZ.TV = (function () {
             el.removeClass('broken3');
             el.removeClass('broken4');
 
+            broken = false;
             finalClick = false;
             paused = false;
             alert.hide();
@@ -60,6 +58,9 @@ STARZ.TV = (function () {
                 bonusValue = bonusImageObject.value;
             }
 
+            // store the final image
+            images.push(starzImage);
+
             startTimer();
 
             el.click(function () {
@@ -68,7 +69,10 @@ STARZ.TV = (function () {
         }
 
         function changeScreenImage() {
-            // screen image is random.
+            // screen image is random.  it may take two or ten+ clicks to get to the STARZ image
+            //timer.restart();
+            //hideAlert();
+
             var imgIndex = Math.floor(Math.random() * images.length);
 
             if (imgIndex === images.length) imgIndex--;
@@ -78,6 +82,7 @@ STARZ.TV = (function () {
                 changeScreenImage();
             } else {
                 currentImage = images[imgIndex];
+                if (currentImage === starzImage) finalClick = true;
                 el.css({'background-image': 'url(img/tv/' + currentImage + ')'});
             }
 
@@ -85,42 +90,46 @@ STARZ.TV = (function () {
 
         function showAlert() {
             alert.fadeTo('fast', 1);
-            new TweenLite(alertIcon, TWEEN_SPEED, {width: '70%', rotation: '360', ease: Quad.easeOut});
+            new TweenLite(alertIcon, TWEEN_SPEED, {width: '100%', rotation: '360', ease: Quad.easeOut});
         }
 
         function hideAlert() {
             alert.fadeTo('slow', 0, function () {
                 $(this).hide();
             });
-            new TweenLite(alertIcon, TWEEN_SPEED, {width: '20%', rotation: '0', ease: Quad.easeOut});
+            new TweenLite(alertIcon, TWEEN_SPEED, {width: '50%', rotation: '0', ease: Quad.easeOut});
         }
 
         function showBonus() {
             bonus.fadeTo('fast', 1);
-            new TweenLite(bonusIcon, TWEEN_SPEED, {width: '70%', ease: Quad.easeOut, onComplete: hideBonus});
+            new TweenLite(bonusIcon, TWEEN_SPEED, {width: '100%', ease: Quad.easeOut, onComplete: hideBonus});
         }
 
         function hideBonus() {
             bonus.fadeTo('slow', 0, function () {
                 $(this).hide();
             });
-            new TweenLite(bonusIcon, TWEEN_SPEED, {width: '20%', ease: Quad.easeOut});
+            new TweenLite(bonusIcon, TWEEN_SPEED, {width: '50%', ease: Quad.easeOut});
         }
 
         function handleClick() {
             if (!paused) {
                 // check to see if it's a starz original, otherwise keep cycling through images
-                if (currentImage === starzImage) {
+                if (finalClick) {
                     complete();
                 } else {
+                    // store the number of clicks
+                    STARZ.EventDispatcher.fire('tvEvent', 'channel');
+
                     if (bonusImageObject) {
                         // check to see if it's a bonus
                         if (currentImage === bonusImageObject.image) {
                             STARZ.EventDispatcher.fire('tvEvent', {'type': 'bonus', 'value': bonusValue});
                             showBonus();
-                            changeScreenImage();
                         }
                     }
+
+                    //changeScreenImage();
                 }
             }
         }
@@ -133,28 +142,17 @@ STARZ.TV = (function () {
             paused = false;
             timer.start();
 
-            startChangingChannels();
+            CHANNEL_INTERVAL = setInterval()
         }
 
         function pauseTimer() {
             paused = true;
             timer.stop();
-
-            stopChangingChannels();
-        }
-
-        function startChangingChannels() {
-            // start cycling through images
-            CHANNEL_INTERVAL = setInterval(changeScreenImage, CHANNEL_SPEED);
-        }
-
-        function stopChangingChannels() {
-            // stop cycling through images
-            clearInterval(CHANNEL_INTERVAL);
         }
 
         function smash() {
             cleanupTV();
+            broken = true;
 
             // css transform
             var broken = Math.floor(Math.random() * 4);
@@ -183,7 +181,6 @@ STARZ.TV = (function () {
 
         function complete() {
             timer.stop();
-            stopChangingChannels();
             cleanupTV();
             el.css({'background-image': 'url(img/tv/' + finalImage + ')'});
             STARZ.EventDispatcher.fire('tvEvent', 'complete');
@@ -191,7 +188,6 @@ STARZ.TV = (function () {
 
         function cleanupTV() {
             timer.reset();
-            stopChangingChannels();
             hideAlert();
             removeClick();
         }

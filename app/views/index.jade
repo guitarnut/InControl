@@ -23,8 +23,20 @@ body.original1
         div.content
             p.centerText
                 img.subtitleText.lightPad(src="img/text_instructions.svg", alt="Instructions")
-            p.centerText
-                img(src="img/instructions.svg", alt="Instructions", width="800")
+            div#instructions
+                div.prev.hotspot
+                    p.centerText Prev
+                div.next.hotspot
+                    p.centerText Next
+                div.wrapper
+                    div.item
+                        p.centerText Bad programming has taken over TV. You've got to find a STARZ show before the TV breaks!
+                    div.item
+                        p.centerText Watch for STARZ programming. When you see it, click the TV to lock in the channel.
+                    div.item
+                        p.centerText Keep an eye out for bonus items.
+                    div.item
+                        p.centerText If time runs out, the TV will shatter. Save as many as you can!
             p.centerText
                 img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
     div#triviaScreen.screen
@@ -36,9 +48,9 @@ body.original1
             p.centerText.questionAnswers(data-answers)
             p.copy1.centerText.feedbackText <span data-feedback></span>
             p.centerText
-                img.buttonOptions.button1.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
-                img.buttonOptions.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
-                img.buttonOptions.button1.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
+                img.buttonOptions.button2.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
+                img.buttonOptions.button2.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
+                img.buttonOptions.button2.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
     div#gameplayScreen.screen
         div#ready.overlay
             img(src="img/overlay_getready.svg")
@@ -61,9 +73,9 @@ body.original1
         div.content
             p.centerText
                 img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
-            p.copy1 You broke <span data-stat-broken>0</span> TVs.
+            p.copy1 You lost <span data-stat-broken>0</span> TVs.
             p.copy1 You saved <span data-stat-completed>0</span> TVs.
-            p.copy1 You changed <span data-stat-channels>0</span> channels.
+            p.copy1 You found <span data-stat-bonuscount>0</span> bonus items.
             p.copy1 You answered <span data-stat-correct>0</span> questions correctly.
             p.copy1 You missed <span data-stat-incorrect>0</span> questions.
             p.copy1 Your total score is <span data-stat-score>0</span>.

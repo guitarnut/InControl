@@ -6,11 +6,13 @@ STARZ.ScreenManager = (function() {
             'methods': []
         };
 
-    // handle all screen-to-screen nav with the data-screen attribute
-    $('[data-screen]').click(function() {
-        var s = $(this).attr('data-screen');
+    // handle nav events
+    document.addEventListener('navEvent', handleNavEvents);
+
+    function handleNavEvents(e) {
+        var s = e.detail;
         showScreen(s);
-    });
+    }
 
     function showScreen(s) {
         if(!currentScreen) {

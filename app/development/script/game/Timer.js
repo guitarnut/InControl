@@ -1,9 +1,9 @@
 STARZ.Timer = (function () {
 
-    var TIMER_RANGE = 3;
+    var TIMER_RANGE = 15;
 
     var TVTimer = function (el) {
-        var TIMER_SPEED = Math.round(Math.random() * TIMER_RANGE) + 1;
+        var TIMER_SPEED = Math.round(Math.random() * TIMER_RANGE) + TIMER_RANGE;
 
         var $el = el,
             timerTween,

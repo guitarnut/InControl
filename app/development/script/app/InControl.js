@@ -7,6 +7,7 @@ STARZ.InControl = (function() {
         // reset all user stats;
         STARZ.GameStatusManager.reset();
         STARZ.SoundManager.init();
+        UI.ButtonFX.init('.button1');
 
         // setup data and listeners
         loadGameData();
@@ -46,6 +47,9 @@ STARZ.InControl = (function() {
     function bindMethods() {
         // reset game
         STARZ.ScreenManager.bindMethod('#titleScreen', STARZ.Title.init);
+
+        // instructions
+        STARZ.ScreenManager.bindMethod('#instructionsScreen', STARZ.Instructions.init);
 
         // setup quiz questions
         STARZ.ScreenManager.bindMethod('#triviaScreen', STARZ.Quiz.init);
