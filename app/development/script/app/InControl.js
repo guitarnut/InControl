@@ -5,7 +5,7 @@ STARZ.InControl = (function() {
 
     function init() {
         // video setup
-        UI.VideoPlayer.init();
+        UI.VideoPlayer.init('[data-video]', '#closeVideo');
 
         // reset all user stats;
         STARZ.GameStatusManager.reset();
@@ -51,6 +51,7 @@ STARZ.InControl = (function() {
         if(dataTotal === dataMax) {
             bindMethods();
             STARZ.ScreenManager.showScreen('#titleScreen');
+            //UI.VideoPlayer.playVideo("http://www.starz.com/videos/html5/the_white_queen_27014.mp4");
         }
     }
 

@@ -9,6 +9,8 @@ STARZ.Title = (function() {
         UI.ToggleButton.init('#volumeToggle', '[data-toggle-on]', '[data-toggle-off]', STARZ.SoundManager.toggle, true);
 
         $('.toggleButton').fadeTo('fast', 1);
+
+        UI.VideoPlayer.playVideo("http://www.starz.com/videos/html5/the_white_queen_27014.mp4");
     }
 
     return {

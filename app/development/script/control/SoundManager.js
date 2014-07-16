@@ -40,14 +40,24 @@ STARZ.SoundManager = (function () {
         if (currentMusic)currentMusic.pause();
     }
 
-    function toggle() {
-        mute = !mute;
+    function toggle(m) {
+        mute = m || !mute;
 
         if (mute) {
             stop();
         } else {
             if (currentMusic)currentMusic.play();
         }
+    }
+
+    function pause() {
+        mute = true;
+        stop();
+    }
+
+    function resume() {
+        mute = false;
+        if (currentMusic)currentMusic.play();
     }
 
     return {
@@ -57,7 +67,9 @@ STARZ.SoundManager = (function () {
         playFX: playFX,
         playMusic: playMusic,
         stop: stop,
-        toggle: toggle
+        toggle: toggle,
+        pause: pause,
+        resume: resume
     }
 
 })();

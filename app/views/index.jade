@@ -117,4 +117,8 @@ body.original1
             source(src='audio/music1.wav')
         audio#music2(loop)
             source(src='audio/music2.wav')
+    div#video.videoWrapper(data-video)
+        div#StarzVideoPlayer
+            div#StarzVideoPlayerFallback
+        p#closeVideo.centerText.hotspot.smallFont Close Video
     script(src="script/InControl.min.js")
