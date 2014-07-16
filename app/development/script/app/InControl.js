@@ -4,11 +4,18 @@ STARZ.InControl = (function() {
         dataMax = 2;
 
     function init() {
+        // video setup
+        UI.VideoPlayer.init();
+
         // reset all user stats;
         STARZ.GameStatusManager.reset();
 
         // music setup
-        STARZ.SoundManager.init('audio', 'audio/');
+        STARZ.SoundManager.init('audio');
+        STARZ.SoundManager.addMusic('music1');
+        STARZ.SoundManager.addMusic('music2');
+        STARZ.SoundManager.addFX('fx1');
+        STARZ.SoundManager.addFX('fx2');
 
         // button setup
         UI.ButtonFX.init('.button1');

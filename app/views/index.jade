@@ -1,6 +1,6 @@
 doctype
 head
-    meta(name="viewport", content="initial-scale=1, width=device-width")
+    meta(name="viewport", content="initial-scale=1, width=1200, user-scalable=no")
     title In Control
     script(src="//code.jquery.com/jquery-2.1.1.min.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.0/TweenMax.min.js")
@@ -17,7 +17,7 @@ body.original1
             div.title
                 img.lightPad(src="img/text_title.svg" alt="In Control")
             p.centerText
-                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
+                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
                 img.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
     div#instructionsScreen.screen
         div.content
@@ -25,20 +25,34 @@ body.original1
                 img.subtitleText.lightPad(src="img/text_instructions.svg", alt="Instructions")
             div#instructions
                 div.prev.hotspot
-                    p.centerText Prev
+                    p.centerText
+                        img.icon1.hotspot(src="img/button_prev.svg")
                 div.next.hotspot
-                    p.centerText Next
+                    p.centerText
+                        img.icon1.hotspot(src="img/button_next.svg")
                 div.wrapper
                     div.item
-                        p.centerText Bad programming has taken over TV. You've got to find a STARZ show before the TV breaks!
+                        p.centerText
+                            img(src="img/inst_1.png")
+                        p.centerText.smallFont Bad programming has taken over TV. You've got to find a STARZ show before the TV breaks!
                     div.item
-                        p.centerText Watch for STARZ programming. When you see it, click the TV to lock in the channel.
+                        p.centerText
+                            img(src="img/inst_2.png")
+                        p.centerText.smallFont When you see a STARZ show, tap the TV before the channel changes.
                     div.item
-                        p.centerText Keep an eye out for bonus items.
+                        p.centerText
+                            img(src="img/inst_3.png")
+                        p.centerText.smallFont You'll know you succeeded when you see the STARZ logo.
                     div.item
-                        p.centerText If time runs out, the TV will shatter. Save as many as you can!
+                        p.centerText
+                            img(src="img/inst_4.png")
+                        p.centerText.smallFont Tap bonus items to increase your score.
+                    div.item
+                        p.centerText
+                            img(src="img/inst_5.png")
+                        p.centerText.smallFont If time runs out, the TV will shatter. Save as many TVs as you can!
             p.centerText
-                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", ontouchstart="javascript:STARZ.SoundManager.init();", src="img/button_play.svg")
+                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
     div#triviaScreen.screen
         div.content
             p.centerText
@@ -73,19 +87,34 @@ body.original1
         div.content
             p.centerText
                 img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
-            p.copy1 You lost <span data-stat-broken>0</span> TVs.
-            p.copy1 You saved <span data-stat-completed>0</span> TVs.
-            p.copy1 You found <span data-stat-bonuscount>0</span> bonus items.
-            p.copy1 You answered <span data-stat-correct>0</span> questions correctly.
-            p.copy1 You missed <span data-stat-incorrect>0</span> questions.
-            p.copy1 Your total score is <span data-stat-score>0</span>.
-            h4.header2 Achievements
-            p#achievements.copy1
+            p.copy1.centerText You saved <span data-stat-completed>0</span> TVs.
+            p.copy1.centerText You lost <span data-stat-broken>0</span> TVs.
+            p.copy1.centerText You found <span data-stat-bonuscount>0</span> bonus items.
+            p.copy1.centerText You answered <span data-stat-correct>0</span> question(s) correctly.
+            p.copy1.centerText You missed <span data-stat-incorrect>0</span> question(s).
+            p.copy1.centerText Your total score is <span data-stat-score>0</span>.
+            br
+            h4.header2.centerText Achievements
+            p#achievements.copy1.centerText
             p.centerText
                 img.button1.hotspot.lightMargin(data-screen="#titleScreen", src="img/button_play.svg")
     div#rotateDevice.alertScreen
         h4 Rotate Device
         p For the best experience, rotate your iPad.
+    div#gameOptions
+        div#volumeToggle.toggleButton
+            span(data-toggle-on)
+                img.icon1.hotspot.lightMargin(src="img/audio_on.svg")
+            span(data-toggle-off)
+                img.icon1.hotspot.lightMargin(src="img/audio_off.svg")
     div#dimmer
-    span#audio
+    div#audio
+        audio#fx1
+            source(src='audio/demo.wav')
+        audio#fx2
+            source(src='audio/demo2.wav')
+        audio#music1(loop)
+            source(src='audio/music1.wav')
+        audio#music2(loop)
+            source(src='audio/music2.wav')
     script(src="script/InControl.min.js")

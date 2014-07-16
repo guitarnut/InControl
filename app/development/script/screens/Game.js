@@ -25,7 +25,7 @@ STARZ.Game = (function () {
             $(this).hide();
         });
 
-        STARZ.SoundManager.playMusic('music2');
+        STARZ.SoundManager.playMusic(1);
         STARZ.TVManager.start();
     }
 

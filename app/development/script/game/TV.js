@@ -86,7 +86,6 @@ STARZ.TV = (function () {
         function showAlert() {
             alert.fadeTo('fast', 1);
             new TweenLite(alertIcon, TWEEN_SPEED, {width: '70%', rotation: '360', ease: Quad.easeOut});
-            //STARZ.SoundManager.playFX('demo');
         }
 
         function hideAlert() {
@@ -99,7 +98,7 @@ STARZ.TV = (function () {
         function showBonus() {
             bonus.fadeTo('fast', 1);
             new TweenLite(bonusIcon, TWEEN_SPEED, {width: '70%', ease: Quad.easeOut, onComplete: hideBonus});
-            STARZ.SoundManager.playFX('demo2');
+            STARZ.SoundManager.playFX(0);
         }
 
         function hideBonus() {
@@ -181,7 +180,7 @@ STARZ.TV = (function () {
 
             el.css({'background-image': 'url(img/tv/' + brokenImage + ')'});
             STARZ.EventDispatcher.fire('tvEvent', 'broken');
-            STARZ.SoundManager.playFX('demo');
+            STARZ.SoundManager.playFX(0);
         }
 
         function complete() {
@@ -190,7 +189,7 @@ STARZ.TV = (function () {
             cleanupTV();
             el.css({'background-image': 'url(img/tv/' + finalImage + ')'});
             STARZ.EventDispatcher.fire('tvEvent', 'complete');
-            STARZ.SoundManager.playFX('demo2');
+            STARZ.SoundManager.playFX(1);
         }
 
         function cleanupTV() {

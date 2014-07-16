@@ -4,7 +4,6 @@ UI.ButtonFX = (function () {
 
     function init(c) {
         var $element = $(c);
-
         $element.stop().css('opacity', OPACITY_OFF);
 
         $element.hover(
@@ -31,10 +30,26 @@ UI.ButtonFX = (function () {
         $element.stop().unbind('mouseenter mouseleave');
     }
 
+    function setState(e, d) {
+        // allows you to set the state of the button after it fades in
+        if (d) {
+            setTimeout(function () {
+                setInitialState(e);
+            }, d)
+        } else {
+            setInitialState(e);
+        }
+    }
+
+    function setInitialState(e) {
+        e.stop().fadeTo('fast', OPACITY_OFF);
+    }
+
     return {
         init: init,
         oneClick: oneClick,
-        cleanup: cleanup
+        cleanup: cleanup,
+        setState: setState
     }
 
 })();

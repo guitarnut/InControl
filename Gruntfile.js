@@ -36,7 +36,7 @@ module.exports = function (grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'app/development/script/InControl.min.prod.js': 'app/development/script/InControl.min.js'
+                    'app/development/script/InControl.min.js': 'app/development/script/InControl.min.js'
                 }
             }
         },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'app/development/',
-                        src: ['audio/*', 'css/*.css', 'data/*', 'img/*', 'script/**/*.min.prod.js', 'vendor/**/*.min.prod.js', '*.html'],
+                        src: ['audio/*', 'css/*.css', 'data/*', 'img/**/*', 'script/**/*.min.js', 'vendor/**/*.min.js', '*.html'],
                         dest: 'app/production'
                     }
                 ]
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
     grunt.registerTask("Compile HTML", "jade");
     grunt.registerTask("Validate JS", "jslint");
     grunt.registerTask("Merge JS", "concat");
-    grunt.registerTask("Compress JS/CSS", ["concat", "uglify"]);
-    grunt.registerTask("Deploy", ["concat", "uglify", "copy"]);
+    grunt.registerTask("Uglify JS", ["concat", "uglify"]);
+    grunt.registerTask("Deploy", ["stylus", "jade", "concat", "uglify", "copy"]);
     grunt.registerTask("Watch Compilers", "watch");
 };

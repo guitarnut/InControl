@@ -48,6 +48,9 @@ STARZ.QuizManager = (function () {
             $(html).appendTo($questionAnswersContainer);
         }
 
+        // animate in buttons
+        animateButtons('.triviaButton');
+
         // add button FX to new instances
         UI.ButtonFX.init('.triviaButton');
         UI.ButtonFX.oneClick('.triviaButton');
@@ -87,6 +90,18 @@ STARZ.QuizManager = (function () {
         if (currentQuestion === quizData.questions.length)currentQuestion = 0;
     }
 
+    function animateButtons(b) {
+        var count = 1,
+            delay = .400;
+
+        $(b).each(function () {
+            var $this = $(this);
+            TweenLite.from($this, .25, {'y': 30, 'opacity': 0, delay: count * delay});
+            count++;
+            UI.ButtonFX.setState($this, count * delay * 1000);
+        });
+    }
+
     // remove listeners, reset values, empty content
     function cleanup() {
         totalAnswers = 0;
@@ -121,7 +136,10 @@ STARZ.QuizManager = (function () {
         // this must happen after the event is fired
         // this button will change, so we'll always look for a new instance
         $nextButton = $parentContainer.find('.next');
-        $nextButton.show();
+
+        // animate it in
+        $nextButton.fadeTo('slow', 1);
+        TweenLite.from($nextButton, .25, {'x': 100})
     }
 
     return {

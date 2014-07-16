@@ -21,7 +21,9 @@ user-select(t)
   user-select t
 
 
-/* Elements */
+/* ------------------------------------------------------ */
+/* ELEMENTS */
+/* ------------------------------------------------------ */
 
 body
   margin 0 auto
@@ -34,21 +36,9 @@ div
   height auto
   z-index 10
 
-/* GENERAL UI */
-
-.hotspot
-  cursor pointer
-
-.alertScreen
-  display none
-
-.button1, .button2
-  width 180px
-
-.noselect
-  user-select(none)
-
+/* ------------------------------------------------------ */
 /* BACKGROUNDS */
+/* ------------------------------------------------------ */
 
 .original1
   background-image url(../img/background_original1.jpg)
@@ -57,7 +47,9 @@ div
   background-size cover
   background-position center bottom
 
+/* ------------------------------------------------------ */
 /* GENERAL LAYOUT */
+/* ------------------------------------------------------ */
 
 .screen
   width 90%
@@ -81,20 +73,9 @@ div
 .lightMargin
   padding 5px
 
-/* SCREENS */
-
-.screen
-  display none
-
-.title
-  width 70%
-  margin 40px auto
-
-.subtitleText
-  height 50px
-  margin 10px auto 10px auto
-
+/* ------------------------------------------------------ */
 /* TYPOGRAPHY */
+/* ------------------------------------------------------ */
 
 p
   user-select(none)
@@ -121,39 +102,64 @@ p
 .centerText
   text-align center
 
-/* QUIZ */
-
-p.questionText
-  font-size 22px
-
-.questionAnswers .triviaButton
-  display inline-block
-  width 136px
-  height 60px
-  margin 3px
-  line-height 56px
-  text-align center
-  font-size 16px
-  font-weight lighter
-
-.questionAnswers .default
-  background url(../img/button_trivia.svg) top left no-repeat
-
-.questionAnswers .correct
-  background url(../img/button_trivia_correct.svg) top left no-repeat
-
-.questionAnswers .incorrect
-  background url(../img/button_trivia_incorrect.svg) top left no-repeat
-
-/* GENERAL COLORS */
+/* ------------------------------------------------------ */
+/* COLORS */
+/* ------------------------------------------------------ */
 
 .ltBlue
   color lightskyblue
 
+/* ------------------------------------------------------ */
+/* SCREENS */
+/* ------------------------------------------------------ */
+
+.screen
+  display none
+
+.title
+  width 70%
+  margin 40px auto
+
+.subtitleText
+  height 50px
+  margin 10px auto 10px auto
+
+/* ------------------------------------------------------ */
+/* GENERAL UI */
+/* ------------------------------------------------------ */
+
+#gameOptions
+  position fixed
+  bottom 0
+  left 0
+  width 100%
+  z-index 5000
+
+.toggleButton
+  display none
+
+.hotspot
+  cursor pointer
+
+.alertScreen
+  display none
+
+.button1, .button2
+  width 180px
+
+.icon1
+  width 45px
+  height 45px
+
+.noselect
+  user-select(none)
+
+/* ------------------------------------------------------ */
 /* GAME */
+/* ------------------------------------------------------ */
 
 #instructions
-  width 500px
+  width 600px
   height 200px
   margin auto
 
@@ -207,3 +213,29 @@ p.questionText
 
 .tv .broken4
   transform(rotate(-4deg))
+
+/* ------------------------------------------------------ */
+/* QUIZ */
+/* ------------------------------------------------------ */
+
+p.questionText
+  font-size 22px
+
+.questionAnswers .triviaButton
+  display inline-block
+  width 136px
+  height 60px
+  margin 3px
+  line-height 56px
+  text-align center
+  font-size 16px
+  font-weight lighter
+
+.questionAnswers .default
+  background url(../img/button_trivia.svg) top left no-repeat
+
+.questionAnswers .correct
+  background url(../img/button_trivia_correct.svg) top left no-repeat
+
+.questionAnswers .incorrect
+  background url(../img/button_trivia_incorrect.svg) top left no-repeat
