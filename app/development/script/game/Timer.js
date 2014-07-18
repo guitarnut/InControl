@@ -33,6 +33,7 @@ STARZ.Timer = (function () {
             // reset the tween var so we know to start from scratch
             timerTween = null;
             $el.css('width', '0');
+            if (alertInterval)clearInterval(alertInterval);
         }
 
         // call a method when the timer reaches a certain point
@@ -41,13 +42,13 @@ STARZ.Timer = (function () {
                 if (timerTween) {
                     if (timerTween.progress() >= t) {
                         m();
+                        clearInterval(alertInterval);
                     }
                 }
             }, 1000);
         }
 
         function timerComplete() {
-            clearInterval(alertInterval);
             timerCompleteMethod();
         }
 

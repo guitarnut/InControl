@@ -22,6 +22,8 @@ STARZ.Quiz = (function () {
         $play.removeClass('next');
         $summary.removeClass('next');
 
+        STARZ.SoundManager.playMusic(0);
+
         // if they've reached level three, change which button shows by assigning the 'next' class to it
         data = data || STARZ.GameStatusManager.data();
 

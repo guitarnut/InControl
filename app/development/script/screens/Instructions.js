@@ -3,8 +3,7 @@ STARZ.Instructions = (function() {
     var instructions;
 
     function init() {
-        UI.Dimmer.contract(80);
-        UI.Dimmer.show(0.4);
+
 
         if(!instructions) {
             setupUI();

@@ -86,6 +86,7 @@ STARZ.TV = (function () {
         function showAlert() {
             alert.fadeTo('fast', 1);
             new TweenLite(alertIcon, TWEEN_SPEED, {width: '70%', rotation: '360', ease: Quad.easeOut});
+            STARZ.SoundManager.playFX(1);
         }
 
         function hideAlert() {
@@ -180,7 +181,7 @@ STARZ.TV = (function () {
 
             el.css({'background-image': 'url(img/tv/' + brokenImage + ')'});
             STARZ.EventDispatcher.fire('tvEvent', 'broken');
-            STARZ.SoundManager.playFX(0);
+            STARZ.SoundManager.playFX(3);
         }
 
         function complete() {
@@ -189,7 +190,7 @@ STARZ.TV = (function () {
             cleanupTV();
             el.css({'background-image': 'url(img/tv/' + finalImage + ')'});
             STARZ.EventDispatcher.fire('tvEvent', 'complete');
-            STARZ.SoundManager.playFX(1);
+            STARZ.SoundManager.playFX(2);
         }
 
         function cleanupTV() {

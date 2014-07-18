@@ -1,24 +1,24 @@
 doctype
 head
-    meta(name="viewport", content="initial-scale=1, width=1200, user-scalable=no")
+    meta(name="viewport", content="user-scalable=no, width=1200")
     title In Control
     script(src="//code.jquery.com/jquery-2.1.1.min.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.0/TweenMax.min.js")
 
     link(type="text/css", rel="stylesheet", href="css/global.css")
 body.original1
-    div#nav
+    //div#nav
         p.centerText.copy1.regularFont <span data-screen="#instructionsScreen">Instructions</span> <span data-screen="#gameplayScreen">Play</span> <span data-screen="#triviaScreen">Trivia</span> <span data-screen="#summaryScreen">Summary</span> <span data-screen="#titleScreen">Quit</span>
     div#loading.overlay.heavyPad
         p.centerText
             img(src="img/loadIcon.gif")
     div#titleScreen.screen
         div.content
-            div.title
-                img.lightPad(src="img/text_title.svg" alt="In Control")
-            p.centerText
-                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
-                img.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
+            p.centerText.titleButtons
+                img#titlePlay.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
+                img#titleInstructions.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
+            div#titleImage
+                img.imgResponsive(src="img/titlescreen.png")
     div#instructionsScreen.screen
         div.content
             p.centerText
@@ -107,16 +107,29 @@ body.original1
                 img.icon1.hotspot.lightMargin(src="img/audio_on.svg")
             span(data-toggle-off)
                 img.icon1.hotspot.lightMargin(src="img/audio_off.svg")
+    div#legal
+        p.smallFont.centerText
+            img(src="img/logo_starz.png")
+            | <br>&copy; 2014 Starz, movie copyrights, show copyrights etc...
+
     div#dimmer
     div#audio
-        audio#fx1
-            source(src='audio/demo.wav')
-        audio#fx2
-            source(src='audio/demo2.wav')
-        audio#music1(loop)
-            source(src='audio/music1.wav')
-        audio#music2(loop)
-            source(src='audio/music2.wav')
+        audio#bonus
+            source(src='audio/bonus.wav')
+        audio#hurry
+            source(src='audio/hurry.wav')
+        audio#locked
+            source(src='audio/complete.wav')
+        audio#broken
+            source(src='audio/broken.wav')
+        audio#correct
+            source(src='audio/complete.wav')
+        audio#incorrect
+            source(src='audio/broken.wav')
+        audio#title(loop)
+            source(src='audio/title.wav')
+        audio#gameplay(loop)
+            source(src='audio/gameplay.wav')
     div#video.videoWrapper(data-video)
         div#StarzVideoPlayer
             div#StarzVideoPlayerFallback

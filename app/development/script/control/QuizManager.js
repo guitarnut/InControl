@@ -71,11 +71,13 @@ STARZ.QuizManager = (function () {
                 completedAnswers++;
                 // prompt for more answers if there are multiple correct ones
                 if ((totalAnswers > 1) && (totalAnswers > completedAnswers))$questionFeedback.text('Keep going, there are more correct answers.');
+                STARZ.SoundManager.playFX(4);
             } else {
                 STARZ.EventDispatcher.fire('achievementEvent', STARZ.Achievement.WrongAnswer);
                 $this.addClass('incorrect');
                 // no second chances if you get one wrong
                 complete(q.incorrect, 'incorrect');
+                STARZ.SoundManager.playFX(5);
             }
 
             // all correct answers selected

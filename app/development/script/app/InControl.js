@@ -12,10 +12,14 @@ STARZ.InControl = (function() {
 
         // music setup
         STARZ.SoundManager.init('audio');
-        STARZ.SoundManager.addMusic('music1');
-        STARZ.SoundManager.addMusic('music2');
-        STARZ.SoundManager.addFX('fx1');
-        STARZ.SoundManager.addFX('fx2');
+        STARZ.SoundManager.addMusic('title');
+        STARZ.SoundManager.addMusic('gameplay');
+        STARZ.SoundManager.addFX('bonus');
+        STARZ.SoundManager.addFX('hurry');
+        STARZ.SoundManager.addFX('locked');
+        STARZ.SoundManager.addFX('broken');
+        STARZ.SoundManager.addFX('correct');
+        STARZ.SoundManager.addFX('incorrect');
 
         // button setup
         UI.ButtonFX.init('.button1');

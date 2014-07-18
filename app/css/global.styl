@@ -59,8 +59,8 @@ div
   position fixed
   z-index 10000
   margin-top 100px
-  margin-left 50%
-  left -250px
+  left 50%
+  margin-left -250px
   height auto
   width 500px
 
@@ -72,6 +72,9 @@ div
 
 .lightMargin
   padding 5px
+
+.imgResponsive
+  width 100%
 
 /* ------------------------------------------------------ */
 /* TYPOGRAPHY */
@@ -113,27 +116,41 @@ p
 /* SCREENS */
 /* ------------------------------------------------------ */
 
+#titleImage
+  width 700px
+  height 681px
+  position fixed
+  top -100px
+  left 50%
+  margin-left -350px
+  z-index -100
+
 .screen
   display none
 
-.title
-  width 70%
-  margin 40px auto
+.titleButtons
+  margin-top 340px
 
 .subtitleText
   height 50px
   margin 10px auto 10px auto
 
 /* ------------------------------------------------------ */
-/* GENERAL UI */
+/* GENERAL UI / MISC SCREEN ELEMENTS */
 /* ------------------------------------------------------ */
 
 #gameOptions
   position fixed
   bottom 0
   left 0
-  width 100%
+  width 20%
   z-index 5000
+
+#legal
+  position fixed
+  width 100%;
+  bottom 0
+  z-index 1000
 
 .toggleButton
   display none

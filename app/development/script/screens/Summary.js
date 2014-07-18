@@ -22,6 +22,8 @@ STARZ.Summary = (function() {
         $incorrect = $incorrect || $('[data-stat-incorrect]');
         $achievements = $achievements || $('#achievements');
 
+        STARZ.SoundManager.playMusic(0);
+
         data = STARZ.GameStatusManager.data();
 
         setText();
