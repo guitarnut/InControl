@@ -8,9 +8,9 @@ UI.ButtonFX = (function () {
 
         $element.hover(
             function () {
-                $(this).stop().fadeTo('fast', 1);
+                if ($(this).css('opacity') >= OPACITY_OFF)$(this).stop().fadeTo('fast', 1);
             }, function () {
-                $(this).stop().fadeTo('fast', OPACITY_OFF);
+                if ($(this).css('opacity') >= OPACITY_OFF)$(this).stop().fadeTo('fast', OPACITY_OFF);
             });
     }
 

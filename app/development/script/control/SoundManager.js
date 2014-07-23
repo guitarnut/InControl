@@ -4,7 +4,10 @@ STARZ.SoundManager = (function () {
         audio,
         fx = [],
         music = [],
-        currentMusic;
+        currentMusic,
+        filesLoaded = 0,
+        totalFiles = 0,
+        $loadText = $('#loading').find('.loadStatus');
 
     function init(a) {
         audio = document.getElementById(a);
@@ -12,11 +15,27 @@ STARZ.SoundManager = (function () {
     }
 
     function addFX(f) {
-        fx.push(document.getElementById(f));
+        storeAudio(f, fx);
     }
 
     function addMusic(m) {
-        music.push(document.getElementById(m));
+        // storeAudio(m, music);
+    }
+
+    function storeAudio(file, array) {
+        totalFiles++;
+        var instance = document.getElementById(file);
+        instance.preload = "auto";
+        array.push(instance);
+        // instance.addEventListener('canplaythrough', audioLoaded);
+    }
+
+    function audioLoaded() {
+        filesLoaded++;
+        $loadText.text('Loading ' + filesLoaded + ' of ' + totalFiles + ' audio files.');
+        if (filesLoaded === totalFiles) {
+            STARZ.EventDispatcher.fire('audioloaded');
+        }
     }
 
     function playFX(s) {
@@ -27,6 +46,7 @@ STARZ.SoundManager = (function () {
     }
 
     function playMusic(s) {
+        /*
         if (currentMusic)currentMusic.pause();
         currentMusic = music[s];
 
@@ -34,10 +54,11 @@ STARZ.SoundManager = (function () {
             music[s].load();
             music[s].play();
         }
+        */
     }
 
     function stop() {
-        if (currentMusic)currentMusic.pause();
+        // if (currentMusic)currentMusic.pause();
     }
 
     function toggle(m) {
@@ -46,7 +67,7 @@ STARZ.SoundManager = (function () {
         if (mute) {
             stop();
         } else {
-            if (currentMusic)currentMusic.play();
+            // if (currentMusic)currentMusic.play();
         }
     }
 
@@ -57,7 +78,7 @@ STARZ.SoundManager = (function () {
 
     function resume() {
         mute = false;
-        if (currentMusic)currentMusic.play();
+        // if (currentMusic)currentMusic.play();
     }
 
     return {

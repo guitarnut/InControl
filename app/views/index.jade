@@ -12,6 +12,7 @@ body.original1
     div#loading.overlay.heavyPad
         p.centerText
             img(src="img/loadIcon.gif")
+        p.centerText.smallFont.loadStatus
     div#titleScreen.screen
         div.content
             p.centerText.titleButtons
@@ -34,23 +35,27 @@ body.original1
                     div.item
                         p.centerText
                             img(src="img/inst_1.png")
-                        p.centerText.smallFont Bad programming has taken over TV. You've got to find a STARZ show before the TV breaks!
+                        p.centerText.smallFont Search for STARZ shows in a sea of bad programming.
                     div.item
                         p.centerText
                             img(src="img/inst_2.png")
-                        p.centerText.smallFont When you see a STARZ show, tap the TV before the channel changes.
+                        p.centerText.smallFont Once you find one, tap the TV screen before the channel changes.
                     div.item
                         p.centerText
                             img(src="img/inst_3.png")
-                        p.centerText.smallFont You'll know you succeeded when you see the STARZ logo.
+                        p.centerText.smallFont You’ll know you’ve succeeded when you see the STARZ logo.
                     div.item
                         p.centerText
                             img(src="img/inst_4.png")
-                        p.centerText.smallFont Tap bonus items to increase your score.
+                        p.centerText.smallFont Tap screens with bonus points to increase your score.
                     div.item
                         p.centerText
                             img(src="img/inst_5.png")
-                        p.centerText.smallFont If time runs out, the TV will shatter. Save as many TVs as you can!
+                        p.centerText.smallFont If the green time meter runs out, the TV will shatter.
+                    div.item
+                        p.centerText
+                            img(src="img/inst_3.png")
+                        p.centerText.smallFont Save as many TVs as you can before they shatter.
             p.centerText
                 img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
     div#triviaScreen.screen
@@ -89,7 +94,7 @@ body.original1
                 img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
             p.copy1.centerText You saved <span data-stat-completed>0</span> TVs.
             p.copy1.centerText You lost <span data-stat-broken>0</span> TVs.
-            p.copy1.centerText You found <span data-stat-bonuscount>0</span> bonus items.
+            p.copy1.centerText You received <span data-stat-bonuscount>0</span> bonus points.
             p.copy1.centerText You answered <span data-stat-correct>0</span> question(s) correctly.
             p.copy1.centerText You missed <span data-stat-incorrect>0</span> question(s).
             p.copy1.centerText Your total score is <span data-stat-score>0</span>.

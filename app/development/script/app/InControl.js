@@ -4,33 +4,36 @@ STARZ.InControl = (function() {
         dataMax = 2;
 
     function init() {
-        // video setup
-        UI.VideoPlayer.init('[data-video]', '#closeVideo');
-
         // reset all user stats;
         STARZ.GameStatusManager.reset();
 
-        // music setup
-        STARZ.SoundManager.init('audio');
-        STARZ.SoundManager.addMusic('title');
-        STARZ.SoundManager.addMusic('gameplay');
-        STARZ.SoundManager.addFX('bonus');
-        STARZ.SoundManager.addFX('hurry');
-        STARZ.SoundManager.addFX('locked');
-        STARZ.SoundManager.addFX('broken');
-        STARZ.SoundManager.addFX('correct');
-        STARZ.SoundManager.addFX('incorrect');
-
-        // button setup
-        UI.ButtonFX.init('.button1');
-
         // setup data and listeners
-        loadGameData();
+        setupGameData();
     }
 
     // load game data, startup
-    function loadGameData() {
+    function setupGameData() {
+        // only run it the first time we play
         if(dataTotal === 0) {
+            //document.addEventListener('audioloaded', dataItemLoaded);
+
+            // video setup
+            UI.VideoPlayer.init('[data-video]', '#closeVideo');
+
+            // music setup
+            STARZ.SoundManager.init('audio');
+            STARZ.SoundManager.addMusic('title');
+            STARZ.SoundManager.addMusic('gameplay');
+            STARZ.SoundManager.addFX('bonus');
+            STARZ.SoundManager.addFX('hurry');
+            STARZ.SoundManager.addFX('locked');
+            STARZ.SoundManager.addFX('broken');
+            STARZ.SoundManager.addFX('correct');
+            STARZ.SoundManager.addFX('incorrect');
+
+            // button setup
+            UI.ButtonFX.init('.button1');
+
             STARZ.ScreenManager.showScreen('#loading');
             STARZ.JSONLoader.load('data/images.json', tvDataLoaded, gameError);
             STARZ.JSONLoader.load('data/quiz.json', quizDataLoaded, gameError);
@@ -41,12 +44,15 @@ STARZ.InControl = (function() {
 
     function tvDataLoaded(d) {
         STARZ.TVManager.data(d);
-        dataTotal++;
-        checkStatus();
+        dataItemLoaded();
     }
 
     function quizDataLoaded(d) {
         STARZ.QuizManager.data(d);
+        dataItemLoaded();
+    }
+
+    function dataItemLoaded() {
         dataTotal++;
         checkStatus();
     }

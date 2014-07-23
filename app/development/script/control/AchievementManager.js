@@ -6,17 +6,17 @@ STARZ.Achievement.SavedTV = {
 };
 
 STARZ.Achievement.BrokenTV = {
-    'name': 'It Was Working a Minute Ago...',
+    'name': 'Slo Mo',
     'detail': 'Break at least 10 TVs.'
 };
 
 STARZ.Achievement.RightAnswer = {
-    'name': 'Head of the Class',
+    'name': 'King of the Clicker',
     'detail': 'Answer at least one quiz question correctly.'
 };
 
 STARZ.Achievement.WrongAnswer = {
-    'name': 'Studying is Overrated',
+    'name': 'Wire Crosser',
     'detail': 'Answer at least one quiz question incorrectly.'
 };
 
@@ -27,5 +27,5 @@ STARZ.Achievement.Clicks = {
 
 STARZ.Achievement.GameComplete = {
     'name': 'Control Freak',
-    'detail': 'Complete the InControl Game.'
+    'detail': 'Complete the "In Control" Game.'
 };

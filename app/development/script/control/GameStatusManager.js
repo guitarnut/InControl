@@ -12,7 +12,7 @@ STARZ.GameStatusManager = (function () {
                 break;
             case 'bonus':
                 gameData.score += v;
-                gameData.bonusCount += 1;
+                gameData.bonusCount += v;
                 break;
             case 'correct':
                 gameData.correct++;
