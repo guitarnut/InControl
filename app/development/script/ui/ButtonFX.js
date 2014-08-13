@@ -49,7 +49,10 @@ UI.ButtonFX = (function () {
         init: init,
         oneClick: oneClick,
         cleanup: cleanup,
-        setState: setState
+        setState: setState,
+        opacity: function() {
+            return OPACITY_OFF;
+        }
     }
 
 })();

@@ -13,7 +13,7 @@ STARZ.Instructions = (function() {
     }
 
     function setupUI() {
-        instructions = UI.Slideshow.build('#instructions', '.wrapper', '.item', '.prev', '.next');
+        instructions = UI.Slideshow.build('#instructions', '.wrapper', '.item', '.prev', '.next', '#instructionsComplete');
     }
 
     return {

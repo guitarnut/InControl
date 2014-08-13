@@ -1,18 +1,19 @@
 UI.Slideshow = (function () {
 
-    function init(p, w, c, prev, next) {
-        return new Instance(p, w, c, prev, next);
+    function init(p, w, c, prev, next, complete) {
+        return new Instance(p, w, c, prev, next, complete);
     }
 
     // slideshow instance
-    var Instance = function (p, w, c, prev, next) {
-        var $parent, $wrapper, $containers, $prev, $next, count, animating;
+    var Instance = function (p, w, c, prev, next, complete) {
+        var $parent, $wrapper, $containers, $prev, $next, $complete, count, animating;
 
         $parent = $(p);
         $wrapper = $parent.find(w + ':eq(0)');
         $containers = $wrapper.children(c);
         $prev = $parent.find(prev + ':eq(0)');
         $next = $parent.find(next + ':eq(0)');
+        if (complete) $complete = $(complete);
 
         setupCSS();
         setupButtons();
@@ -54,6 +55,9 @@ UI.Slideshow = (function () {
 
                     if (count < 0) count = $containers.length - 1;
                     if (count === $containers.length) count = 0;
+                    if (count === $containers.length - 1) {
+                        if ($complete)$complete.fadeTo('fast', UI.ButtonFX.opacity());
+                    }
 
                     $i.hide();
 
@@ -78,6 +82,7 @@ UI.Slideshow = (function () {
         function reset() {
             $prev.hide();
             $next.hide();
+            if ($complete)$complete.stop().hide();
             $containers.hide();
 
             animating = true;
@@ -85,7 +90,7 @@ UI.Slideshow = (function () {
 
             var $j = $($containers[count]);
 
-            $j.fadeTo('fast', 1, function() {
+            $j.fadeTo('fast', 1, function () {
                 animating = false;
                 $next.fadeTo('fast', 1);
             });
