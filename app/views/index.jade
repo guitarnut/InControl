@@ -1,142 +1,146 @@
 doctype
-head
-    meta(name="viewport", content="user-scalable=no, width=1200")
-    title In Control
-    script(src="//code.jquery.com/jquery-2.1.1.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.0/TweenMax.min.js")
+html
+    head
+        meta(name="viewport", content="user-scalable=no, width=1200")
+        title In Control
+        script(src="//code.jquery.com/jquery-2.1.1.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.0/TweenMax.min.js")
 
-    link(type="text/css", rel="stylesheet", href="css/global.css")
-body.original1
-    //div#nav
-        p.centerText.copy1.regularFont <span data-screen="#instructionsScreen">Instructions</span> <span data-screen="#gameplayScreen">Play</span> <span data-screen="#triviaScreen">Trivia</span> <span data-screen="#summaryScreen">Summary</span> <span data-screen="#titleScreen">Quit</span>
-    div#loading.overlay.heavyPad
-        p.centerText
-            img(src="img/loadIcon.gif")
-        p.centerText.smallFont.loadStatus
-    div#titleScreen.screen
-        div.content
-            p.centerText.titleButtons
-                img#titlePlay.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
-                img#titleInstructions.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
-            div#titleImage
-                img.imgResponsive(src="img/titlescreen.png")
-    div#instructionsScreen.screen
-        div.content
-            p.centerText
-                img.subtitleText.lightPad(src="img/text_instructions.svg", alt="Instructions")
-            div#instructions
-                div.prev.hotspot
-                    p.centerText
-                        img.icon1.hotspot(src="img/button_prev.svg")
-                div.next.hotspot
-                    p.centerText
-                        img.icon1.hotspot(src="img/button_next.svg")
-                div.wrapper
-                    div.item
-                        p.centerText
-                            img(src="img/inst_1.png")
-                        p.centerText.smallFont Search for STARZ shows in a sea of bad programming.
-                    div.item
-                        p.centerText
-                            img(src="img/inst_2.png")
-                        p.centerText.smallFont Once you find one, tap the TV screen before the channel changes.
-                    div.item
-                        p.centerText
-                            img(src="img/inst_3.png")
-                        p.centerText.smallFont You’ll know you’ve succeeded when you see the STARZ logo.
-                    div.item
-                        p.centerText
-                            img(src="img/inst_4.png")
-                        p.centerText.smallFont Tap screens with bonus points to increase your score.
-                    div.item
-                        p.centerText
-                            img(src="img/inst_5.png")
-                        p.centerText.smallFont If the green time meter runs out, the TV will shatter.
-                    div.item
-                        p.centerText
-                            img(src="img/inst_3.png")
-                        p.centerText.smallFont Save as many TVs as you can before they shatter.
-            p.centerText
-                img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
-    div#triviaScreen.screen
-        div.content
-            p.centerText
-                img.subtitleText.lightPad(src="img/text_triviachallenge.svg" alt="Trivia")
-            p.copy1.regularFont.centerText.ltBlue Answer this question for 100 bonus points.
-            p.copy1.questionText.centerText <span data-question></span>
-            p.centerText.questionAnswers(data-answers)
-            p.copy1.centerText.feedbackText <span data-feedback></span>
-            p.centerText
-                img.buttonOptions.button2.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
-                img.buttonOptions.button2.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
-                img.buttonOptions.button2.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
-    div#gameplayScreen.screen
-        div#ready.overlay
-            img(src="img/overlay_getready.svg")
-        div#complete.overlay.hotspot
-            img(data-screen="#triviaScreen", src="img/overlay_levelcomplete.svg")
-        div#tvWrapper
-            each i in new Array(12)
-                div.tv.noselect
-                    div.tvScreen
-                        img(src="img/tv.svg")
-                        div.timer
-                        div.alert
-                            div.animate
-                                img(src="img/text_hurry.svg")
-                        div.bonus
-                            div.animate
-                                img(src="img/text_bonus.svg")
-            br(style="clear: both")
-    div#summaryScreen.screen
-        div.content
-            p.centerText
-                img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
-            p.copy1.centerText You saved <span data-stat-completed>0</span> TVs.
-            p.copy1.centerText You lost <span data-stat-broken>0</span> TVs.
-            p.copy1.centerText You received <span data-stat-bonuscount>0</span> bonus points.
-            p.copy1.centerText You answered <span data-stat-correct>0</span> question(s) correctly.
-            p.copy1.centerText You missed <span data-stat-incorrect>0</span> question(s).
-            p.copy1.centerText Your total score is <span data-stat-score>0</span>.
-            br
-            h4.header2.centerText Achievements
-            p#achievements.copy1.centerText
-            p.centerText
-                img.button1.hotspot.lightMargin(data-screen="#titleScreen", src="img/button_play.svg")
-    div#rotateDevice.alertScreen
-        h4 Rotate Device
-        p For the best experience, rotate your iPad.
-    div#gameOptions
-        div#volumeToggle.toggleButton
-            span(data-toggle-on)
-                img.icon1.hotspot.lightMargin(src="img/audio_on.svg")
-            span(data-toggle-off)
-                img.icon1.hotspot.lightMargin(src="img/audio_off.svg")
-    div#legal
-        p.smallFont.centerText
-            img(src="img/logo_starz.png")
-            | <br>&copy; 2014 Starz, movie copyrights, show copyrights etc...
+        link(type="text/css", rel="stylesheet", href="css/global.css")
+        link(type="text/css", rel="stylesheet", href="css/pc.css")
+        | <!--[if IE]> <link type="text/css" rel="stylesheet" href="css/ie.css"> <![endif]-->
 
-    div#dimmer
-    div#audio
-        audio#bonus
-            source(src='audio/bonus.wav')
-        audio#hurry
-            source(src='audio/hurry.wav')
-        audio#locked
-            source(src='audio/complete.wav')
-        audio#broken
-            source(src='audio/broken.wav')
-        audio#correct
-            source(src='audio/complete.wav')
-        audio#incorrect
-            source(src='audio/broken.wav')
-        audio#title(loop)
-            source(src='audio/title.wav')
-        audio#gameplay(loop)
-            source(src='audio/gameplay.wav')
-    div#video.videoWrapper(data-video)
-        div#StarzVideoPlayer
-            div#StarzVideoPlayerFallback
-        p#closeVideo.centerText.hotspot.smallFont Close Video
-    script(src="script/InControl.min.js")
+    body.original1
+        //div#nav
+            p.centerText.copy1.regularFont <span data-screen="#instructionsScreen">Instructions</span> <span data-screen="#gameplayScreen">Play</span> <span data-screen="#triviaScreen">Trivia</span> <span data-screen="#summaryScreen">Summary</span> <span data-screen="#titleScreen">Quit</span>
+        div#loading.overlay.heavyPad
+            p.centerText
+                img(src="img/loadIcon.gif")
+            p.centerText.smallFont.loadStatus
+        div#titleScreen.screen
+            div.content
+                p.centerText.titleButtons
+                    img#titlePlay.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
+                    img#titleInstructions.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
+                div#titleImage
+                    img.imgResponsive(src="img/titlescreen.png")
+        div#instructionsScreen.screen
+            div.content
+                p.centerText
+                    img.subtitleText.lightPad(src="img/text_instructions.svg", alt="Instructions")
+                div#instructions
+                    div.prev.hotspot
+                        p.centerText
+                            img.icon1.hotspot(src="img/button_prev.svg")
+                    div.next.hotspot
+                        p.centerText
+                            img.icon1.hotspot(src="img/button_next.svg")
+                    div.wrapper
+                        div.item
+                            p.centerText
+                                img(src="img/inst_1.png")
+                            p.centerText.smallFont Search for STARZ shows in a sea of bad programming.
+                        div.item
+                            p.centerText
+                                img(src="img/inst_2.png")
+                            p.centerText.smallFont Once you find one, tap the TV screen before the channel changes.
+                        div.item
+                            p.centerText
+                                img(src="img/inst_3.png")
+                            p.centerText.smallFont You'll know you've succeeded when you see the STARZ logo.
+                        div.item
+                            p.centerText
+                                img(src="img/inst_4.png")
+                            p.centerText.smallFont Tap screens with bonus points to increase your score.
+                        div.item
+                            p.centerText
+                                img(src="img/inst_5.png")
+                            p.centerText.smallFont If the green time meter runs out, the TV will shatter.
+                        div.item
+                            p.centerText
+                                img(src="img/inst_3.png")
+                            p.centerText.smallFont Save as many TVs as you can before they shatter.
+                p.centerText
+                    img.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
+        div#triviaScreen.screen
+            div.content
+                p.centerText
+                    img.subtitleText.lightPad(src="img/text_triviachallenge.svg" alt="Trivia")
+                p.copy1.regularFont.centerText.ltBlue Answer this question for 100 bonus points.
+                p.copy1.questionText.centerText <span data-question></span>
+                p.centerText.questionAnswers(data-answers)
+                p.copy1.centerText.feedbackText <span data-feedback></span>
+                p.centerText
+                    img.buttonOptions.button2.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
+                    img.buttonOptions.button2.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
+                    img.buttonOptions.button2.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
+        div#gameplayScreen.screen
+            div#ready.overlay
+                img(src="img/overlay_getready.svg")
+            div#complete.overlay.hotspot
+                img(data-screen="#triviaScreen", src="img/overlay_levelcomplete.svg")
+            div#tvWrapper
+                each i in new Array(12)
+                    div.tv.noselect
+                        div.tvScreen
+                            img(src="img/tv.svg")
+                            div.timer
+                            div.alert
+                                div.animate
+                                    img(src="img/text_hurry.svg")
+                            div.bonus
+                                div.animate
+                                    img(src="img/text_bonus.svg")
+                br(style="clear: both")
+        div#summaryScreen.screen
+            div.content
+                p.centerText
+                    img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
+                p.copy1.centerText You saved <span data-stat-completed>0</span> TVs.
+                p.copy1.centerText You lost <span data-stat-broken>0</span> TVs.
+                p.copy1.centerText You received <span data-stat-bonuscount>0</span> bonus points.
+                p.copy1.centerText You answered <span data-stat-correct>0</span> question(s) correctly.
+                p.copy1.centerText You missed <span data-stat-incorrect>0</span> question(s).
+                p.copy1.centerText Your total score is <span data-stat-score>0</span>.
+                br
+                h4.header2.centerText Achievements
+                p#achievements.copy1.centerText
+                p.centerText
+                    img.button1.hotspot.lightMargin(data-screen="#titleScreen", src="img/button_play.svg")
+        div#rotateDevice.alertScreen
+            h4 Rotate Device
+            p For the best experience, rotate your iPad.
+        div#gameOptions
+            div#volumeToggle.toggleButton
+                span(data-toggle-on)
+                    img.icon1.hotspot.lightMargin(src="img/audio_on.svg")
+                span(data-toggle-off)
+                    img.icon1.hotspot.lightMargin(src="img/audio_off.svg")
+        div#legal
+            p.smallFont.centerText
+                img(src="img/logo_starz.png")
+                | <br>&copy; 2014 Starz, movie copyrights, show copyrights etc...
+
+        div#dimmer
+        div#audio
+            audio#bonus
+                source(src='audio/bonus.wav')
+            audio#hurry
+                source(src='audio/hurry.wav')
+            audio#locked
+                source(src='audio/complete.wav')
+            audio#broken
+                source(src='audio/broken.wav')
+            audio#correct
+                source(src='audio/complete.wav')
+            audio#incorrect
+                source(src='audio/broken.wav')
+            audio#title(loop)
+                source(src='audio/title.wav')
+            audio#gameplay(loop)
+                source(src='audio/gameplay.wav')
+        div#video.videoWrapper(data-video)
+            div#StarzVideoPlayer
+                div#StarzVideoPlayerFallback
+            p#closeVideo.centerText.hotspot.smallFont Close Video
+        script(src="script/InControl.min.js")

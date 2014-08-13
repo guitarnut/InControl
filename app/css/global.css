@@ -127,6 +127,7 @@ p {
   position: fixed;
   width: 100%;
   bottom: 0;
+  left: 0;
   z-index: 1000;
 }
 .toggleButton {
@@ -141,6 +142,7 @@ p {
 .button1,
 .button2 {
   width: 180px;
+  height: 50px;
 }
 .icon1 {
   width: 45px;
@@ -192,8 +194,9 @@ p {
   margin: 15px 15px 15px 15px;
 }
 .tv .tvScreen {
-  background-size: 200px 114.99999999999999px;
+  background-size: 190px 99.24999999999999px;
   background-repeat: no-repeat;
+  background-position: 5px 5px;
 }
 .tv .tvScreen .timer {
   position: relative;
@@ -206,6 +209,7 @@ p {
 .tv .tvScreen .bonus {
   position: absolute;
   width: 150px;
+  height: 40px;
   top: 40px;
   margin-left: 50%;
   left: -75px;
@@ -256,8 +260,9 @@ p.questionText {
   margin: 3px;
   line-height: 56px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: lighter;
+  overflow: hidden;
 }
 .questionAnswers .default {
   background: url("../img/button_trivia.svg") top left no-repeat;

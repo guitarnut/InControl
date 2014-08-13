@@ -13,7 +13,9 @@ module.exports = function (grunt) {
         stylus: {
             compile: {
                 files: {
-                    'app/development/css/global.css': 'app/css/global.styl'
+                    'app/development/css/global.css': 'app/css/global.styl',
+                    'app/development/css/pc.css': 'app/css/pc.styl',
+                    'app/development/css/ie.css': 'app/css/ie.styl'
                 }
             }
         },

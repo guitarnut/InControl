@@ -1,8 +1,8 @@
 // layout values
 tvWidth = 200px
 tvHeight = tvWidth * 0.725
-tvBGWidth = tvWidth
-tvBGHeight = tvBGWidth * 0.575
+tvBGWidth = tvWidth - 10
+tvBGHeight = (tvBGWidth * 0.575) - 10
 tvMargin = 15px
 
 // mix-ins
@@ -156,6 +156,7 @@ p
   position fixed
   width 100%;
   bottom 0
+  left 0
   z-index 1000
 
 .toggleButton
@@ -169,6 +170,7 @@ p
 
 .button1, .button2
   width 180px
+  height 50px
 
 .icon1
   width 45px
@@ -219,6 +221,7 @@ p
 .tv .tvScreen
   background-size tvBGWidth tvBGHeight
   background-repeat no-repeat
+  background-position 5px 5px
 
 .tv .tvScreen .timer
   position relative
@@ -230,6 +233,7 @@ p
 .tv .tvScreen .alert, .tv .tvScreen .bonus
   position absolute
   width tvWidth*.75
+  height 40px
   top 40px
   margin-left 50%
   left -((tvWidth*.75)/2)
@@ -264,8 +268,9 @@ p.questionText
   margin 3px
   line-height 56px
   text-align center
-  font-size 16px
+  font-size 14px
   font-weight lighter
+  overflow hidden
 
 .questionAnswers .default
   background url(../img/button_trivia.svg) top left no-repeat
