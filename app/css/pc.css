@@ -9,3 +9,14 @@ body {
   margin-left: -450px;
   z-index: -100;
 }
+@media (max-width: 999px) {
+  body {
+    width: 100%;
+  }
+  body div {
+    display: none;
+  }
+  #sizeAlert {
+    display: inherit;
+  }
+}

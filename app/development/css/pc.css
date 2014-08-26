@@ -1,1 +1,1 @@
-body{width:1000px}#titleImage{width:900px;position:fixed;top:-250px;left:50%;margin-left:-450px;z-index:-100}
+body{width:1000px}#titleImage{width:900px;position:fixed;top:-250px;left:50%;margin-left:-450px;z-index:-100}@media (max-width:999px){body{width:100%}body div{display:none}#sizeAlert{display:inherit}}

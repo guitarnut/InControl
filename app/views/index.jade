@@ -38,28 +38,20 @@ html
                     div.wrapper
                         div.item
                             p.centerText
-                                img(src="img/inst_1.png")
-                            p.centerText.smallFont Search for STARZ shows in a sea of bad programming.
+                                img(src="img/inst_0.jpg")
+                            p.centerText.regularFont You're facing a wall of TV screen with the remote control in your hand. The question is - what to watch. You want captivating original series. You want STARZ! Your goal is to use the remote control to find the STARZ original series on every TV and lock it in.
                         div.item
                             p.centerText
-                                img(src="img/inst_2.png")
-                            p.centerText.smallFont Once you find one, tap the TV screen before the channel changes.
+                                img(src="img/inst_1.jpg")
+                            p.centerText.regularFont <strong class="ltBlue">Change The Channels</strong><br>Click on each screen before the time bar disappears. If you fail, the screen cracks and you lose points.
                         div.item
                             p.centerText
-                                img(src="img/inst_3.png")
-                            p.centerText.smallFont You'll know you've succeeded when you see the STARZ logo.
+                                img(src="img/inst_2.jpg")
+                            p.centerText.regularFont <strong class="ltBlue">Find the STARZ Series</strong><br>Keep changing the channel until you reach a STARZ original series.
                         div.item
                             p.centerText
-                                img(src="img/inst_4.png")
-                            p.centerText.smallFont Tap screens with bonus points to increase your score.
-                        div.item
-                            p.centerText
-                                img(src="img/inst_5.png")
-                            p.centerText.smallFont If the green time meter runs out, the TV will shatter.
-                        div.item
-                            p.centerText
-                                img(src="img/inst_3.png")
-                            p.centerText.smallFont Save as many TVs as you can before they shatter.
+                                img(src="img/inst_3.jpg")
+                            p.centerText.regularFont <strong class="ltBlue">Lock them In</strong><br>Once you're on a STARZ original series, click one more time to lock the screen.
                 p.centerText
                     img#instructionsComplete.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
         div#triviaScreen.screen
@@ -74,7 +66,7 @@ html
                     img.buttonOptions.button2.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
                     img.buttonOptions.button2.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
                     img.buttonOptions.button2.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
-        div#gameplayScreen.screen
+        div#gameplayScreen.screen.gameCursor
             div#ready.overlay
                 img(src="img/overlay_getready.svg")
             div#complete.overlay.hotspot
@@ -96,16 +88,14 @@ html
             div.content
                 p.centerText
                     img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
-                p.copy1.centerText You saved <span data-stat-completed>0</span> TVs.
-                p.copy1.centerText You lost <span data-stat-broken>0</span> TVs.
-                p.copy1.centerText You received <span data-stat-bonuscount>0</span> bonus points.
-                p.copy1.centerText You answered <span data-stat-correct>0</span> question(s) correctly.
-                p.copy1.centerText You missed <span data-stat-incorrect>0</span> question(s).
-                p.copy1.centerText Your total score is <span data-stat-score>0</span>.
+                p.largeFont.centerText <span class="ltBlue">Final Score:</span> <span data-stat-score>0</span>
+                p.largeFont.centerText <span class="ltBlue">Broken TVs:</span> <span data-stat-broken>0</span>
+                p.largeFont.centerText <span class="ltBlue">Bonus Items Collected:</span> <span data-stat-bonuscount>0</span>
+                p.largeFont.centerText <span class="ltBlue">Trivia Questions Aced:</span> <span data-stat-correct>0</span>
                 br
-                h4.header2.centerText Achievements
+                p.largeFont.centerText.ltBlue Achievements
                 p#achievements.copy1.centerText
-                p.centerText
+                p.centerText(style="margin-top: 20px;")
                     img.button1.hotspot.lightMargin(data-screen="#titleScreen", src="img/button_play.svg")
         div#rotateDevice.alertScreen
             h4 Rotate Device
@@ -139,8 +129,5 @@ html
                 source(src='audio/title.wav')
             audio#gameplay(loop)
                 source(src='audio/gameplay.wav')
-        div#video.videoWrapper(data-video)
-            div#StarzVideoPlayer
-                div#StarzVideoPlayerFallback
-            p#closeVideo.centerText.hotspot.smallFont Close Video
+        p#sizeAlert.centerText Please enlarge your browser window.
         script(src="script/InControl.min.js")

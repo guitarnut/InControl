@@ -15,10 +15,6 @@ STARZ.InControl = (function() {
     function setupGameData() {
         // only run it the first time we play
         if(dataTotal === 0) {
-            //document.addEventListener('audioloaded', dataItemLoaded);
-
-            // video setup
-            UI.VideoPlayer.init('[data-video]', '#closeVideo');
 
             // music setup
             STARZ.SoundManager.init('audio');
@@ -61,7 +57,6 @@ STARZ.InControl = (function() {
         if(dataTotal === dataMax) {
             bindMethods();
             STARZ.ScreenManager.showScreen('#titleScreen');
-            //UI.VideoPlayer.playVideo("http://www.starz.com/videos/html5/the_white_queen_27014.mp4");
         }
     }
 

@@ -1,6 +1,10 @@
 /* ------------------------------------------------------ */
 /* ELEMENTS */
 /* ------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0 auto;
   font-family: Helvetica Neue, Helvetica, Verdana, sans-serif;
@@ -28,6 +32,12 @@ div {
 /* ------------------------------------------------------ */
 /* GENERAL LAYOUT */
 /* ------------------------------------------------------ */
+#sizeAlert {
+  display: none;
+  font-size: 22px;
+  font-weight: lighter;
+  margin-top: 25px;
+}
 .screen {
   width: 90%;
   margin: 0 auto;
@@ -62,6 +72,7 @@ p {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  margin-bottom: 5px;
 }
 .copy1 {
   width: 70%;
@@ -75,6 +86,11 @@ p {
   line-height: 1.6em;
   text-align: justify;
   font-size: 16px;
+}
+.largeFont {
+  font-size: 28px;
+  font-weight: lighter;
+  line-height: 1.2em;
 }
 .regularFont {
   font-size: 14px;
@@ -90,6 +106,9 @@ p {
 /* ------------------------------------------------------ */
 .ltBlue {
   color: #87cefa;
+}
+.blackBG {
+  background-color: #000;
 }
 /* ------------------------------------------------------ */
 /* SCREENS */
@@ -107,7 +126,7 @@ p {
   display: none;
 }
 .titleButtons {
-  margin-top: 340px;
+  margin-top: 240px;
 }
 .subtitleText {
   height: 50px;
@@ -116,6 +135,9 @@ p {
 /* ------------------------------------------------------ */
 /* GENERAL UI / MISC SCREEN ELEMENTS */
 /* ------------------------------------------------------ */
+#nav {
+  z-index: 10000;
+}
 #gameOptions {
   position: fixed;
   bottom: 0;
@@ -172,7 +194,7 @@ p {
 /* ------------------------------------------------------ */
 #instructions {
   width: 600px;
-  height: 200px;
+  height: 300px;
   margin: auto;
 }
 #instructions .prev,
@@ -181,7 +203,10 @@ p {
   height: 65px;
 }
 #instructions .item {
-  height: 200px;
+  height: 300px;
+}
+#instructions .item img {
+  padding-bottom: 15px;
 }
 #tvWrapper {
   margin: 0 auto;
@@ -247,6 +272,9 @@ p {
   -o-transform: rotate(-4deg);
   transform: rotate(-4deg);
 }
+.gameCursor {
+  cursor: url("../img/crosshair.png"), auto;
+}
 /* ------------------------------------------------------ */
 /* QUIZ */
 /* ------------------------------------------------------ */
@@ -254,22 +282,28 @@ p.questionText {
   font-size: 22px;
 }
 .questionAnswers .triviaButton {
-  display: inline-block;
-  width: 136px;
-  height: 60px;
-  margin: 3px;
-  line-height: 56px;
+  display: block;
+  width: 500px;
+  height: 50px;
+  margin: 3px auto;
   text-align: center;
   font-size: 14px;
   font-weight: lighter;
+  line-height: 3em;
   overflow: hidden;
 }
+.questionAnswers .default,
+.questionAnswers .correct,
+.questionAnswers .incorrect {
+  background-repeat: no-repeat;
+  background-position: middle left;
+}
 .questionAnswers .default {
-  background: url("../img/button_trivia.svg") top left no-repeat;
+  background-image: url("../img/button_trivia.svg");
 }
 .questionAnswers .correct {
-  background: url("../img/button_trivia_correct.svg") top left no-repeat;
+  background-image: url("../img/button_trivia_correct.svg");
 }
 .questionAnswers .incorrect {
-  background: url("../img/button_trivia_incorrect.svg") top left no-repeat;
+  background-image: url("../img/button_trivia_incorrect.svg");
 }

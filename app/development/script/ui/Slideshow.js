@@ -31,8 +31,8 @@ UI.Slideshow = (function () {
 
             $wrapper.css({'width': ($containers.length * $parent.width) + 'px', 'height': maxHeight + 'px', 'position': 'absolute', 'overflow': 'hidden', 'top': 0, 'left': 0});
 
-            $next.css({'position': 'absolute', 'z-index': '1000', 'right': '5%', 'top': '50%', 'margin-top': '-' + $next.height() / 2 + 'px'});
-            $prev.css({'position': 'absolute', 'z-index': '1000', 'left': '5%', 'top': '50%', 'margin-top': '-' + $next.height() / 2 + 'px'});
+            $next.css({'position': 'absolute', 'z-index': '1000', 'right': '5%', 'top': '20%', 'margin-top': '-' + $next.height() / 2 + 'px'});
+            $prev.css({'position': 'absolute', 'z-index': '1000', 'left': '5%', 'top': '20%', 'margin-top': '-' + $next.height() / 2 + 'px'});
         }
 
         function setupButtons() {

@@ -34,18 +34,18 @@ STARZ.Summary = (function() {
 
     function setText() {
         $broken.text(data.brokenTV);
-        $completed.text(data.completedTV);
+        //$completed.text(data.completedTV);
         $score.text(data.score);
         $bonusCount.text(data.bonusCount);
         $correct.text(data.correct);
-        $incorrect.text(data.incorrect);
+        //$incorrect.text(data.incorrect);
 
         // populate achievements list
         var html = '';
         $achievements.empty();
 
         for(var i = 0; i < data.achievements.length; i++) {
-            html += '<span class="achievement"><strong class="ltBlue">'+ data.achievements[i].name + '</strong><br><em>' + data.achievements[i].detail + '</em></span><br>';
+            html += '<span class="achievement regularFont">'+ data.achievements[i].name + ' - ' + data.achievements[i].detail + '</span><br>';
         }
 
         $(html).appendTo($achievements);

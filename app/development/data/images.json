@@ -1,7 +1,7 @@
 {
     "generic": [
         {
-            "image": "image_3.jpg"
+            "image": "image_1.jpg"
         },
         {
             "image": "image_2.jpg"
@@ -13,28 +13,16 @@
             "image": "image_4.jpg"
         },
         {
-            "image": "image_3.jpg"
+            "image": "image_5.jpg"
         },
         {
-            "image": "image_2.jpg"
+            "image": "image_6.jpg"
         },
         {
-            "image": "image_3.jpg"
+            "image": "image_7.jpg"
         },
         {
-            "image": "image_4.jpg"
-        },
-        {
-            "image": "image_3.jpg"
-        },
-        {
-            "image": "image_2.jpg"
-        },
-        {
-            "image": "image_3.jpg"
-        },
-        {
-            "image": "image_4.jpg"
+            "image": "image_8.jpg"
         }
     ],
     "bonus": [
@@ -83,6 +71,12 @@
         },
         {
             "image": "starz_12.jpg"
+        },
+        {
+            "image": "starz_13.jpg"
+        },
+        {
+            "image": "starz_14.jpg"
         }
     ],
     "broken": [

@@ -1,9 +1,9 @@
 {
     "sets": [
         {
-            "round1": 3,
-            "round2": 2,
-            "round3": 1
+            "round1": 1,
+            "round2": 1,
+            "round3": 2
         }
     ],
     "questions": [
@@ -32,19 +32,40 @@
                 {
                     "answer": "The Chair",
                     "correct": 1
-                },{
+                },
+                {
                     "answer": "Power",
                     "correct": 1
                 },
                 {
                     "answer": "Survivor's Remorse",
                     "correct": 1
-                },{
+                },
+                {
                     "answer": "The Missing",
+                    "correct": 1
+                }
+            ],
+            "correct": "Correct!",
+            "incorrect": "Wrong."
+        },
+        {
+            "question": "STARZ has exlusive original series and hit movies.  What does this mean for your customers?",
+            "answers": [
+                {
+                    "answer": "All the movies are in French",
+                    "correct": 0
+                },
+                {
+                    "answer": "They won’t see our series and movies on any other channel",
                     "correct": 1
                 },
                 {
-                    "answer": "Hogan's Heros",
+                    "answer": "They may as well go to the movies",
+                    "correct": 0
+                },
+                {
+                    "answer": "They are not getting a good value",
                     "correct": 0
                 }
             ],
@@ -52,17 +73,22 @@
             "incorrect": "Wrong."
         },
         {
-            "question": "How many titles are available on STARZ?",
+            "question": "How many channels are available with STARZ?",
             "answers": [
                 {
-                    "answer": "Over 450",
+                    "answer": "4 distinct channels",
+                    "correct": 0
+                },
+                {
+                    "answer": "6 distinct channels",
                     "correct": 1
                 },
                 {
-                    "answer": "300",
+                    "answer": "10 distinct channels",
                     "correct": 0
-                },{
-                    "answer": "250",
+                },
+                {
+                    "answer": "12 distinct channels",
                     "correct": 0
                 }
             ],
