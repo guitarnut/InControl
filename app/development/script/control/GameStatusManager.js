@@ -72,6 +72,7 @@ STARZ.GameStatusManager = (function () {
         switch (event) {
             case 'gameEvent':
                 if (detail === 'roundComplete')gameData.currentRound++;
+                //console.log(gameData.currentRound);
                 break;
             case 'tvEvent':
                 if (detail === 'complete')STARZ.GameStatusManager.store('completedTV');

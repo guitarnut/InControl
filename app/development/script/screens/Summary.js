@@ -45,7 +45,7 @@ STARZ.Summary = (function() {
         $achievements.empty();
 
         for(var i = 0; i < data.achievements.length; i++) {
-            html += '<span class="achievement regularFont">'+ data.achievements[i].name + ' - ' + data.achievements[i].detail + '</span><br>';
+            html += '<span class="achievement">'+ data.achievements[i].name + ' - ' + data.achievements[i].detail + '</span><br>';
         }
 
         $(html).appendTo($achievements);

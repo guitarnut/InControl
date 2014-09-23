@@ -1,4 +1,4 @@
-STARZ.InControl = (function() {
+STARZ.InControl = (function () {
 
     var dataTotal = 0,
         dataMax = 2;
@@ -9,12 +9,15 @@ STARZ.InControl = (function() {
 
         // setup data and listeners
         setupGameData();
+
+        // load tv images
+        preloadTVImages();
     }
 
     // load game data, startup
     function setupGameData() {
         // only run it the first time we play
-        if(dataTotal === 0) {
+        if (dataTotal === 0) {
 
             // music setup
             STARZ.SoundManager.init('audio');
@@ -54,7 +57,7 @@ STARZ.InControl = (function() {
     }
 
     function checkStatus() {
-        if(dataTotal === dataMax) {
+        if (dataTotal === dataMax) {
             bindMethods();
             STARZ.ScreenManager.showScreen('#titleScreen');
         }
@@ -81,10 +84,40 @@ STARZ.InControl = (function() {
     // universal error handler. call this from anywhere in the app if a crash occurs
     function gameError(e) {
         // handle fatal error
-        if(e) {
+        if (e) {
             console.log('Error: ' + e);
         }
         console.log('Game crashed.')
+    }
+
+    function preloadTVImages() {
+        var images = ['black', 'complete', 'bonus_1', 'bonus_2', 'broken', 'image', 'starz'],
+            totals = [1, 1, 1, 1, 4, 8, 14];
+
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+
+            // are there more than one of this image?
+            if (totals[i] > 1) {
+                // yes? load them incrementally using the convention 'file_1'
+                for (var j = 1; j <= totals[i]; j++) {
+                    loadImage(img + '_' + j);
+                }
+            } else {
+                // no? then load it as is.
+                loadImage(img);
+            }
+        }
+
+    }
+
+    function loadImage(img) {
+        //console.log('loading ' + img);
+        var a = new Image();
+        a.src = 'img/tv/' + img + '.jpg';
+        a.onload = function () {
+            //console.log('image loaded');
+        };
     }
 
     return {

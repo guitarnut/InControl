@@ -20,14 +20,14 @@ html
         div#titleScreen.screen
             div.content
                 p.centerText.titleButtons
-                    img#titlePlay.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
+                    img#titlePlay.button1.hotspot.lightMargin(data-screen="#originalsScreen", src="img/button_play.svg")
                     img#titleInstructions.button1.hotspot.lightMargin(data-screen="#instructionsScreen", src="img/button_instructions.svg")
                 div#titleImage
                     img.imgResponsive(src="img/titlescreen.png")
         div#instructionsScreen.screen
             div.content
                 p.centerText
-                    img.subtitleText.lightPad(src="img/text_instructions.svg", alt="Instructions")
+                    img.subtitleText.lightPad(src="img/text_instructions.png", alt="Instructions")
                 div#instructions
                     div.prev.hotspot
                         p.centerText
@@ -39,45 +39,53 @@ html
                         div.item
                             p.centerText
                                 img(src="img/inst_0.jpg")
-                            p.centerText.regularFont You're facing a wall of TV screens with the remote control in your hand. The question is - what to watch? You want captivating original series. You want STARZ! Your goal is to use the remote control to find the STARZ original series on every TV and lock it in.
+                            p.jText.largeFont.stzGray You're facing a wall of TV screens with the remote control in your hand. The question is - what to watch? You want captivating original series. You want STARZ! Your goal is to use the remote control to find the <strong>STARZ Original Series</strong> on every TV and lock it in.
                         div.item
                             p.centerText
                                 img(src="img/inst_1.jpg")
-                            p.centerText.regularFont <strong class="ltBlue">Change The Channels</strong><br>Click on each screen before the time bar disappears. If you fail, the screen cracks and you lose points.
+                            p.centerText.largeFont.stzOrange Change The Channels
+                            p.jText.largeFont.stzGray Click on each screen before the time bar disappears. If you fail, the screen cracks and you lose points.
                         div.item
                             p.centerText
                                 img(src="img/inst_2.jpg")
-                            p.centerText.regularFont <strong class="ltBlue">Find the STARZ Series</strong><br>Keep changing the channel until you reach a STARZ original series.
+                            p.centerText.largeFont.stzOrange Find the STARZ Series
+                            p.jText.largeFont.stzGray Keep changing the channel until you reach one of the <strong>STARZ Original Series</strong>.
                         div.item
                             p.centerText
                                 img(src="img/inst_3.jpg")
-                            p.centerText.regularFont <strong class="ltBlue">Lock them In</strong><br>Once you're on a STARZ original series, click one more time to lock the screen.
+                            p.centerText.largeFont.stzOrange Lock them In
+                            p.jText.largeFont.stzGray Once you're on a <strong>STARZ Original Series</strong>, click one more time to lock the screen.
+                            p.centerText
+                                img#instructionsComplete.button1.hotspot.lightMargin(data-screen="#originalsScreen", src="img/button_continue.svg")
                 p.centerText
-                    img#instructionsComplete.button1.hotspot.lightMargin(data-screen="#originalsScreen", src="img/button_play.svg")
+                    img.width20(src="img/org_1.jpg")
+                    img.width20(src="img/org_2.jpg")
+                    img.width20(src="img/org_3.jpg")
+                    img.width20(src="img/org_4.jpg")
+                p.centerText
+                    img.width20(src="img/org_5.jpg")
+                    img.width20(src="img/org_6.jpg")
+                    img.width20(src="img/org_7.jpg")
         div#originalsScreen.screen
             div.content
+                h1.centerText.largeFont.stzGray Look for these great Original Series only available on STARZ!
                 p.centerText
+                p.centerText
+                    img.width20(src="img/org_1.jpg")
+                    img.width20(src="img/org_2.jpg")
+                    img.width20(src="img/org_3.jpg")
+                    img.width20(src="img/org_4.jpg")
+                p.centerText
+                    img.width20(src="img/org_5.jpg")
+                    img.width20(src="img/org_6.jpg")
+                    img.width20(src="img/org_7.jpg")
                 p.centerText
                     img#instructionsComplete.button1.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_play.svg")
-                p.centerText
-                    img(src="img/org_1.png")
-                p.centerText
-                    img(src="img/org_2.png")
-                p.centerText
-                    img(src="img/org_3.png")
-                p.centerText
-                    img(src="img/org_4.png")
-                p.centerText
-                    img(src="img/org_5.png")
-                p.centerText
-                    img(src="img/org_6.png")
-                p.centerText
-                    img(src="img/org_7.png")
         div#triviaScreen.screen
             div.content
                 p.centerText
-                    img.subtitleText.lightPad(src="img/text_triviachallenge.svg" alt="Trivia")
-                p.copy1.regularFont.centerText.ltBlue Answer this question for 100 bonus points.
+                    img.subtitleText.lightPad(src="img/text_triviachallenge.png" alt="Trivia")
+                p.copy1.mediumFont.centerText.stzOrange Answer this question for 100 bonus points.
                 p.copy1.questionText.centerText <span data-question></span>
                 p.centerText.questionAnswers(data-answers)
                 p.copy1.centerText.feedbackText <span data-feedback></span>
@@ -85,6 +93,9 @@ html
                     img.buttonOptions.button2.hotspot.lightMargin(data-method="nextQuestion", src="img/button_nextquestion.svg")
                     img.buttonOptions.button2.hotspot.lightMargin(data-screen="#gameplayScreen", src="img/button_continue.svg")
                     img.buttonOptions.button2.hotspot.lightMargin(data-screen="#summaryScreen", src="img/button_continue.svg")
+            div#triviaImageLeft
+            div#triviaImageRight
+
         div#gameplayScreen.screen.gameCursor
             div#ready.overlay
                 img(src="img/overlay_getready.svg")
@@ -106,29 +117,38 @@ html
         div#summaryScreen.screen
             div.content
                 p.centerText
-                    img.subtitleText.lightPad(src="img/text_gameover.svg" alt="Game Over")
-                p.largeFont.centerText <span class="ltBlue">Final Score:</span> <span data-stat-score>0</span>
-                p.largeFont.centerText <span class="ltBlue">Broken TVs:</span> <span data-stat-broken>0</span>
-                p.largeFont.centerText <span class="ltBlue">Bonus Items Collected:</span> <span data-stat-bonuscount>0</span>
-                p.largeFont.centerText <span class="ltBlue">Trivia Questions Aced:</span> <span data-stat-correct>0</span>
+                    img.subtitleText.lightPad(src="img/text_gameover.png" alt="Game Over")
+                p.largeFont.centerText <span class="stzOrange">Final Score:</span> <span data-stat-score>0</span>
+                p.largeFont.centerText <span class="stzOrange">Broken TVs:</span> <span data-stat-broken>0</span>
+                p.largeFont.centerText <span class="stzOrange">Bonus Items Collected:</span> <span data-stat-bonuscount>0</span>
+                p.largeFont.centerText <span class="stzOrange">Trivia Questions Aced:</span> <span data-stat-correct>0</span>
                 br
-                p.largeFont.centerText.ltBlue Achievements
-                p#achievements.copy1.centerText
+                p.largeFont.centerText.stzOrange Achievements
+                p#achievements.largeFont.centerText.stzGray
                 p.centerText(style="margin-top: 20px;")
                     img.button1.hotspot.lightMargin(data-screen="#titleScreen", src="img/button_play.svg")
+                p.centerText
+                    img.padding.width20(src="img/org_1.jpg")
+                    img.padding.width20(src="img/org_2.jpg")
+                    img.padding.width20(src="img/org_3.jpg")
+                    img.padding.width20(src="img/org_4.jpg")
+                p.centerText
+                    img.padding.width20(src="img/org_5.jpg")
+                    img.padding.width20(src="img/org_6.jpg")
+                    img.padding.width20(src="img/org_7.jpg")
         div#rotateDevice.alertScreen
             h4 Rotate Device
             p For the best experience, rotate your iPad.
         div#gameOptions
             div#volumeToggle.toggleButton
                 span(data-toggle-on)
-                    img.icon1.hotspot.lightMargin(src="img/audio_on.svg")
+                    img.hotspot.lightMargin.imgResponsive(src="img/audio_on.svg")
                 span(data-toggle-off)
-                    img.icon1.hotspot.lightMargin(src="img/audio_off.svg")
+                    img.hotspot.lightMargin.imgResponsive(src="img/audio_off.svg")
         div#legal
-            p.smallFont.centerText
+            p.smallFont.centerText.stzGray
                 img(src="img/logo_starz.png")
-                | <br>&copy; 2014 Starz, movie copyrights, show copyrights etc...
+                | <br>&copy; 2014 Starz. Black Sails &copy; 2014 Starz Entertainment, LLC.  All Rights Reserved.  The Chair &copy; 2014 Chair One Productions, LLC.  All Rights Reserved.  Da Vinci’s Demons &copy; 2013 Tonto Films and Television Limited.  All Rights Reserved.  The Missing &copy; 2014 New Pictures Limited/ Company Television Limited.  Outlander &copy; 2014 Sony Pictures Television Inc.  All Rights Reserved.  Power &copy; 2014 Starz Entertainment, LLC.  Survivor’s Remorse &copy; 2014 Starz Entertainment, LLC.  All Rights Reserved. 
 
         div#dimmer
         div#audio

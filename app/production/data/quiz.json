@@ -20,7 +20,9 @@
                 }
             ],
             "correct": "Correct!",
-            "incorrect": "Wrong."
+            "incorrect": "Wrong! You can find exclusive original series Saturday nights on STARZ.",
+            "brandImageLeft": "branding_srs1_1.png",
+            "brandImageRight": ""
         },
         {
             "question": "Which original series can your customers watch exclusively on STARZ?",
@@ -47,10 +49,12 @@
                 }
             ],
             "correct": "Correct!",
-            "incorrect": "Wrong."
+            "incorrect": "Wrong!  These are all original series your customer can only watch on STARZ.",
+            "brandImageLeft": "",
+            "brandImageRight": "branding_ols1_2.png"
         },
         {
-            "question": "STARZ has exlusive original series and hit movies.  What does this mean for your customers?",
+            "question": "STARZ has exlusive original series and hit movies.<br>What does this mean for your customers?",
             "answers": [
                 {
                     "answer": "All the movies are in French",
@@ -70,7 +74,9 @@
                 }
             ],
             "correct": "Correct!",
-            "incorrect": "Wrong."
+            "incorrect": "Wrong!  Let customers know they are getting exclusive series and hit movies they won’t see on other premium channels.",
+            "brandImageLeft": "branding_pws1_1.png",
+            "brandImageRight": ""
         },
         {
             "question": "How many channels are available with STARZ?",
@@ -93,7 +99,9 @@
                 }
             ],
             "correct": "Correct!",
-            "incorrect": "Wrong."
+            "incorrect": "Wrong!  STARZ gives your customers variety with 6 distinct channels.",
+            "brandImageLeft": "",
+            "brandImageRight": "branding_tms1_2.png"
         }
     ]
 }

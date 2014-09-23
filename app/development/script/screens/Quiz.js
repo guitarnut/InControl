@@ -59,8 +59,10 @@ STARZ.Quiz = (function () {
 
         // we're done with this quiz
         if (questionsComplete === questionsTotal) {
+            //console.log(data.currentRound +', '+ data.totalRounds);
             // all questions answered, and it's the final round
             if (data.currentRound === data.totalRounds) {
+                //console.log('done');
                 // this determines which button will show when the user finishes the quiz question
                 $nextQuestion.removeClass('next');
                 $summary.addClass('next');

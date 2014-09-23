@@ -64,11 +64,13 @@ STARZ.TV = (function () {
             setTimeout(function () {
                 changeScreenImage();
                 startTimer();
-            }, _delay);
 
-            el.click(function () {
-                handleClick();
-            })
+                // no clicking until we start!
+                el.click(function () {
+                    handleClick();
+                });
+
+            }, _delay);
         }
 
         function changeScreenImage() {

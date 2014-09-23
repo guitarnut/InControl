@@ -7,6 +7,8 @@ STARZ.QuizManager = (function () {
         $questionAnswersContainer,
         $questionAnswers,
         $questionFeedback,
+        $leftImage,
+        $rightImage,
         $nextButtonOptions,
         $nextButton,
         totalAnswers,
@@ -29,12 +31,22 @@ STARZ.QuizManager = (function () {
         $questionAnswersContainer = $questionAnswersContainer || $('[data-answers]:eq(0)');
         $questionFeedback = $questionFeedback || $('[data-feedback]:eq(0)');
         $nextButtonOptions = $nextButtonOptions || $parentContainer.find('.buttonOptions');
+        $leftImage = $leftImage || $('#triviaImageLeft');
+        $rightImage = $rightImage || $('#triviaImageRight');
 
         // hide all the options
         $nextButtonOptions.hide();
 
+        // get the images for this particular quiz
+        var imageLeft = quizData.questions[currentQuestion].brandImageLeft,
+            imageRight = quizData.questions[currentQuestion].brandImageRight;
+
+        // populate the images
+        addBrandingImages($leftImage, imageLeft);
+        addBrandingImages($rightImage, imageRight);
+
         var q = quizData.questions[currentQuestion];
-        $questionText.text(q.question);
+        $questionText.html(q.question);
 
         // build question answers
         for (var i = 0; i < q.answers.length; i++) {
@@ -90,6 +102,18 @@ STARZ.QuizManager = (function () {
 
         // prevent index error
         if (currentQuestion === quizData.questions.length)currentQuestion = 0;
+    }
+
+    // populate the left and right images
+    function addBrandingImages(el, src) {
+        el.empty();
+
+        if (src != "") {
+            $('<img src="img/branding/' + src + '" class="imgResponsive">').appendTo(el);
+            el.show();
+        } else {
+            el.hide();
+        }
     }
 
     function animateButtons(b) {
